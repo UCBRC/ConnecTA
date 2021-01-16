@@ -2,14 +2,14 @@
     "aliyuncs/oss-sdk-php": {
         "version": "v2.3.0"
     },
-    "aliyunsts/aliyun-sts": {
-        "version": "1.0"
-    },
     "beberlei/assert": {
         "version": "v2.9.6"
     },
     "brick/math": {
         "version": "0.9.1"
+    },
+    "clue/stream-filter": {
+        "version": "v1.5.0"
     },
     "defuse/php-encryption": {
         "version": "v2.1.0"
@@ -77,9 +77,6 @@
     "doctrine/persistence": {
         "version": "v1.0.0"
     },
-    "doctrine/reflection": {
-        "version": "v1.0.0"
-    },
     "doctrine/sql-formatter": {
         "version": "1.1.1"
     },
@@ -103,6 +100,9 @@
     },
     "guzzlehttp/psr7": {
         "version": "1.4.2"
+    },
+    "http-interop/http-factory-guzzle": {
+        "version": "1.0.0"
     },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
@@ -170,11 +170,23 @@
     "php": {
         "version": "7.4"
     },
+    "php-http/client-common": {
+        "version": "1.10.0"
+    },
+    "php-http/discovery": {
+        "version": "1.13.0"
+    },
     "php-http/guzzle6-adapter": {
         "version": "v1.1.1"
     },
     "php-http/httplug": {
         "version": "v1.1.0"
+    },
+    "php-http/message": {
+        "version": "1.10.0"
+    },
+    "php-http/message-factory": {
+        "version": "v1.0.2"
     },
     "php-http/promise": {
         "version": "v1.0.0"
@@ -196,6 +208,12 @@
     },
     "psr/container": {
         "version": "1.0.0"
+    },
+    "psr/event-dispatcher": {
+        "version": "1.0.0"
+    },
+    "psr/http-factory": {
+        "version": "1.0.1"
     },
     "psr/http-message": {
         "version": "1.0.1"
@@ -235,6 +253,9 @@
             "version": "4.0",
             "ref": "aaddfdf43cdecd4cf91f992052d76c2cadc04543"
         }
+    },
+    "sentry/sdk": {
+        "version": "2.2.0"
     },
     "sentry/sentry": {
         "version": "1.8.2"
@@ -280,9 +301,6 @@
             "version": "3.3",
             "ref": "9f94d3ea453cd8a3b95db7f82592d7344fe3a76a"
         }
-    },
-    "symfony/debug": {
-        "version": "v4.0.2"
     },
     "symfony/dependency-injection": {
         "version": "v4.0.2"
@@ -332,6 +350,9 @@
             "ref": "70e6c7b1c83d975cf1ca40f9685feeb009d70792"
         }
     },
+    "symfony/http-client": {
+        "version": "v5.2.1"
+    },
     "symfony/http-client-contracts": {
         "version": "v2.3.1"
     },
@@ -341,14 +362,8 @@
     "symfony/http-kernel": {
         "version": "v4.0.2"
     },
-    "symfony/inflector": {
-        "version": "v4.0.2"
-    },
     "symfony/intl": {
         "version": "v4.0.4"
-    },
-    "symfony/lts": {
-        "version": "4-dev"
     },
     "symfony/maker-bundle": {
         "version": "1.0",
@@ -358,9 +373,6 @@
             "version": "1.0",
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
-    },
-    "symfony/mime": {
-        "version": "v5.2.1"
     },
     "symfony/monolog-bridge": {
         "version": "v4.0.6"
@@ -383,6 +395,9 @@
     "symfony/polyfill-ctype": {
         "version": "v1.8.0"
     },
+    "symfony/polyfill-intl-grapheme": {
+        "version": "v1.22.0"
+    },
     "symfony/polyfill-intl-icu": {
         "version": "v1.7.0"
     },
@@ -404,6 +419,9 @@
     "symfony/polyfill-php80": {
         "version": "v1.22.0"
     },
+    "symfony/polyfill-uuid": {
+        "version": "v1.22.0"
+    },
     "symfony/process": {
         "version": "v4.0.2"
     },
@@ -412,6 +430,12 @@
     },
     "symfony/property-access": {
         "version": "v4.0.2"
+    },
+    "symfony/property-info": {
+        "version": "v5.2.1"
+    },
+    "symfony/proxy-manager-bridge": {
+        "version": "v5.2.1"
     },
     "symfony/psr-http-message-bridge": {
         "version": "v1.0.2"
@@ -454,6 +478,9 @@
     },
     "symfony/stopwatch": {
         "version": "v4.0.2"
+    },
+    "symfony/string": {
+        "version": "v5.2.1"
     },
     "symfony/translation": {
         "version": "3.3",
