@@ -1,10 +1,10 @@
 <?php
 namespace App\Listener;
 
-use Symfony\Component\HttpKernel\Event\GetResponseEvent;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 class LocaleListener {
-    public function onKernelRequest(GetResponseEvent $event)
+    public function onKernelRequest(RequestEvent $event)
     {
         // Set the locale
         $request = $event->getRequest();

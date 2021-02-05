@@ -30,7 +30,7 @@ class OAuthService extends AbstractController
 
     private function getPrivateKey(){
         if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-            return "C:/Users/huqin/private.key";
+            return new CryptKey("C:/Users/huqin/private.key", null, false);
         } else {
             return "/etc/cert/oauth.key";
         }
@@ -38,7 +38,7 @@ class OAuthService extends AbstractController
 
     private function getPublicKey(){
         if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-            return "C:/Users/huqin/public.key";
+            return new CryptKey("C:/Users/huqin/public.key", null, false);
         } else {
             return "/etc/cert/oauth.pub";
         }

@@ -12,11 +12,11 @@ namespace App\Listener;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
 
 class ResponseListener
 {
-    public function onKernelResponse(FilterResponseEvent $filterResponseEvent) {
+    public function onKernelResponse(ResponseEvent $filterResponseEvent) {
         $response = $filterResponseEvent->getResponse();
         $request = $filterResponseEvent->getRequest();
         $client = $request->headers->get("Client");
