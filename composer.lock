@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5ecf5768e8b725b5b46ee76f1a43c2d9",
+    "content-hash": "e4eeab4f191a76995a7109af40136c5e",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -2605,38 +2605,103 @@
             "time": "2020-09-14T14:23:00+00:00"
         },
         {
-            "name": "lcobucci/jwt",
-            "version": "3.2.5",
+            "name": "lcobucci/clock",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/lcobucci/jwt.git",
-                "reference": "82be04b4753f8b7693b62852b7eab30f97524f9b"
+                "url": "https://github.com/lcobucci/clock.git",
+                "reference": "353d83fe2e6ae95745b16b3d911813df6a05bfb3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/82be04b4753f8b7693b62852b7eab30f97524f9b",
-                "reference": "82be04b4753f8b7693b62852b7eab30f97524f9b",
+                "url": "https://api.github.com/repos/lcobucci/clock/zipball/353d83fe2e6ae95745b16b3d911813df6a05bfb3",
+                "reference": "353d83fe2e6ae95745b16b3d911813df6a05bfb3",
                 "shasum": ""
             },
             "require": {
-                "ext-openssl": "*",
-                "php": ">=5.5"
+                "php": "^7.4 || ^8.0"
             },
             "require-dev": {
-                "mdanter/ecc": "~0.3.1",
-                "mikey179/vfsstream": "~1.5",
-                "phpmd/phpmd": "~2.2",
-                "phpunit/php-invoker": "~1.1",
-                "phpunit/phpunit": "~4.5",
-                "squizlabs/php_codesniffer": "~2.3"
+                "infection/infection": "^0.17",
+                "lcobucci/coding-standard": "^6.0",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-deprecation-rules": "^0.12",
+                "phpstan/phpstan-phpunit": "^0.12",
+                "phpstan/phpstan-strict-rules": "^0.12",
+                "phpunit/php-code-coverage": "9.1.4",
+                "phpunit/phpunit": "9.3.7"
             },
-            "suggest": {
-                "mdanter/ecc": "Required to use Elliptic Curves based algorithms."
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Lcobucci\\Clock\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luís Cobucci",
+                    "email": "lcobucci@gmail.com"
+                }
+            ],
+            "description": "Yet another clock abstraction",
+            "support": {
+                "issues": "https://github.com/lcobucci/clock/issues",
+                "source": "https://github.com/lcobucci/clock/tree/2.0.x"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/lcobucci",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/lcobucci",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-08-27T18:56:02+00:00"
+        },
+        {
+            "name": "lcobucci/jwt",
+            "version": "4.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lcobucci/jwt.git",
+                "reference": "b80c4876a010cd8bfa9c78de64c930bb2fc8fb9a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/b80c4876a010cd8bfa9c78de64c930bb2fc8fb9a",
+                "reference": "b80c4876a010cd8bfa9c78de64c930bb2fc8fb9a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "ext-openssl": "*",
+                "lcobucci/clock": "^2.0",
+                "php": "^7.4 || ^8.0"
+            },
+            "require-dev": {
+                "infection/infection": "^0.20",
+                "lcobucci/coding-standard": "^6.0",
+                "mikey179/vfsstream": "^1.6",
+                "phpbench/phpbench": "^0.17",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^0.12",
+                "phpstan/phpstan-deprecation-rules": "^0.12",
+                "phpstan/phpstan-phpunit": "^0.12",
+                "phpstan/phpstan-strict-rules": "^0.12",
+                "phpunit/php-invoker": "^3.1",
+                "phpunit/phpunit": "^9.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.1-dev"
+                    "dev-master": "4.0-dev"
                 }
             },
             "autoload": {
@@ -2650,7 +2715,7 @@
             ],
             "authors": [
                 {
-                    "name": "Luís Otávio Cobucci Oblonczyk",
+                    "name": "Luís Cobucci",
                     "email": "lcobucci@gmail.com",
                     "role": "Developer"
                 }
@@ -2662,9 +2727,19 @@
             ],
             "support": {
                 "issues": "https://github.com/lcobucci/jwt/issues",
-                "source": "https://github.com/lcobucci/jwt/tree/3.2"
+                "source": "https://github.com/lcobucci/jwt/tree/4.0.1"
             },
-            "time": "2018-11-11T12:22:26+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/lcobucci",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/lcobucci",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2021-01-28T00:13:50+00:00"
         },
         {
             "name": "league/event",
@@ -2722,34 +2797,37 @@
         },
         {
             "name": "league/oauth2-server",
-            "version": "6.1.1",
+            "version": "8.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/oauth2-server.git",
-                "reference": "a0cabb573c7cd5ee01803daec992d6ee3677c4ae"
+                "reference": "622eaa1f28eb4a2dea0cfc7e4f5280fac794e83c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/oauth2-server/zipball/a0cabb573c7cd5ee01803daec992d6ee3677c4ae",
-                "reference": "a0cabb573c7cd5ee01803daec992d6ee3677c4ae",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-server/zipball/622eaa1f28eb4a2dea0cfc7e4f5280fac794e83c",
+                "reference": "622eaa1f28eb4a2dea0cfc7e4f5280fac794e83c",
                 "shasum": ""
             },
             "require": {
-                "defuse/php-encryption": "^2.1",
+                "defuse/php-encryption": "^2.2.1",
+                "ext-json": "*",
                 "ext-openssl": "*",
-                "lcobucci/jwt": "^3.1",
-                "league/event": "^2.1",
-                "paragonie/random_compat": "^2.0",
-                "php": ">=5.6.0",
-                "psr/http-message": "^1.0"
+                "lcobucci/jwt": "^3.4 || ^4.0",
+                "league/event": "^2.2",
+                "php": "^7.2 || ^8.0",
+                "psr/http-message": "^1.0.1"
             },
             "replace": {
                 "league/oauth2server": "*",
                 "lncd/oauth2": "*"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.38 || ^5.7.21",
-                "zendframework/zend-diactoros": "^1.0"
+                "laminas/laminas-diactoros": "^2.4.1",
+                "phpstan/phpstan": "^0.12.57",
+                "phpstan/phpstan-phpunit": "^0.12.16",
+                "phpunit/phpunit": "^8.5.13",
+                "roave/security-advisories": "dev-master"
             },
             "type": "library",
             "autoload": {
@@ -2766,6 +2844,12 @@
                     "name": "Alex Bilbie",
                     "email": "hello@alexbilbie.com",
                     "homepage": "http://www.alexbilbie.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Andy Millington",
+                    "email": "andrew@noexceptions.io",
+                    "homepage": "https://www.noexceptions.io",
                     "role": "Developer"
                 }
             ],
@@ -2788,9 +2872,15 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/oauth2-server/issues",
-                "source": "https://github.com/thephpleague/oauth2-server/tree/master"
+                "source": "https://github.com/thephpleague/oauth2-server/tree/8.2.4"
             },
-            "time": "2017-12-23T23:33:42+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/sephster",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-12-10T11:35:44+00:00"
         },
         {
             "name": "longman/telegram-bot",
@@ -2951,6 +3041,75 @@
                 "source": "https://github.com/gjedeer/celery-php/tree/master"
             },
             "time": "2016-10-16T07:17:19+00:00"
+        },
+        {
+            "name": "matomo/device-detector",
+            "version": "4.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/matomo-org/device-detector.git",
+                "reference": "6b3facc35e7a465bc4223fddfa5fa88c5b327554"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matomo-org/device-detector/zipball/6b3facc35e7a465bc4223fddfa5fa88c5b327554",
+                "reference": "6b3facc35e7a465bc4223fddfa5fa88c5b327554",
+                "shasum": ""
+            },
+            "require": {
+                "mustangostang/spyc": "*",
+                "php": ">=7.2"
+            },
+            "replace": {
+                "piwik/device-detector": "self.version"
+            },
+            "require-dev": {
+                "matthiasmullie/scrapbook": "^1.4.7",
+                "mayflower/mo4-coding-standard": "dev-master#275cb9d",
+                "phpstan/phpstan": "^0.12.52",
+                "phpunit/phpunit": "^8.5.8",
+                "psr/cache": "^1.0.1",
+                "psr/simple-cache": "^1.0.1",
+                "symfony/yaml": "^5.1.7"
+            },
+            "suggest": {
+                "doctrine/cache": "Can directly be used for caching purpose",
+                "ext-yaml": "Necessary for using the Pecl YAML parser"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DeviceDetector\\": ""
+                },
+                "exclude-from-classmap": [
+                    "Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "The Matomo Team",
+                    "email": "hello@matomo.org",
+                    "homepage": "https://matomo.org/team/"
+                }
+            ],
+            "description": "The Universal Device Detection library, that parses User Agents and detects devices (desktop, tablet, mobile, tv, cars, console, etc.), clients (browsers, media players, mobile apps, feed readers, libraries, etc), operating systems, devices, brands and models.",
+            "homepage": "https://matomo.org",
+            "keywords": [
+                "devicedetection",
+                "parser",
+                "useragent"
+            ],
+            "support": {
+                "forum": "http://forum.matomo.org/",
+                "issues": "https://github.com/matomo-org/device-detector/issues",
+                "source": "https://github.com/matomo-org/piwik",
+                "wiki": "https://dev.matomo.org/"
+            },
+            "time": "2021-01-08T14:14:55+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -3192,131 +3351,6 @@
             "time": "2019-09-10T13:16:29+00:00"
         },
         {
-            "name": "nexmo/client",
-            "version": "2.4.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Nexmo/nexmo-php-complete.git",
-                "reference": "9d515f6592d466159f79dde460ce2b99b8128279"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Nexmo/nexmo-php-complete/zipball/9d515f6592d466159f79dde460ce2b99b8128279",
-                "reference": "9d515f6592d466159f79dde460ce2b99b8128279",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^7.0",
-                "nexmo/client-core": "^2.0",
-                "php": ">=7.2"
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tim Lytle",
-                    "email": "tim@nexmo.com",
-                    "homepage": "http://twitter.com/tjlytle",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Michael Heap",
-                    "email": "michael.heap@vonage.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Lorna Mitchell",
-                    "email": "lorna.mitchell@vonage.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Chris Tankersley",
-                    "email": "chris.tankersley@vonage.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "PHP Client for using Nexmo's API.",
-            "support": {
-                "email": "devrel@nexmo.com",
-                "source": "https://github.com/Nexmo/nexmo-php-complete/tree/2.4.0"
-            },
-            "time": "2020-09-10T18:41:31+00:00"
-        },
-        {
-            "name": "nexmo/client-core",
-            "version": "2.5.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Nexmo/nexmo-php.git",
-                "reference": "f81bcdcd4cbc3afe45c415b9118a59ae348f5800"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Nexmo/nexmo-php/zipball/f81bcdcd4cbc3afe45c415b9118a59ae348f5800",
-                "reference": "f81bcdcd4cbc3afe45c415b9118a59ae348f5800",
-                "shasum": ""
-            },
-            "require": {
-                "composer/package-versions-deprecated": "^1.11",
-                "laminas/laminas-diactoros": "^1.8.4 || ^2.0",
-                "lcobucci/jwt": "^3.2",
-                "php": ">=7.2",
-                "psr/container": "^1.0",
-                "psr/http-client-implementation": "^1.0",
-                "vonage/nexmo-bridge": "^0.1.0"
-            },
-            "require-dev": {
-                "estahn/phpunit-json-assertions": "^3.0.0",
-                "guzzlehttp/guzzle": "^7.0",
-                "php-http/mock-client": "^1.4",
-                "phpstan/phpstan": "^0.12.11",
-                "phpunit/phpunit": "^7.4 || ^8.0",
-                "squizlabs/php_codesniffer": "^3.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Vonage\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tim Lytle",
-                    "email": "tim@nexmo.com",
-                    "homepage": "http://twitter.com/tjlytle",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Michael Heap",
-                    "email": "michael.heap@vonage.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Lorna Mitchell",
-                    "email": "lorna.mitchell@vonage.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Chris Tankersley",
-                    "email": "chris.tankersley@vonage.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Deprecated PHP Client for using Vonage's API - please use vonage/client-core",
-            "support": {
-                "email": "devrel@nexmo.com",
-                "source": "https://github.com/Nexmo/nexmo-php/tree/2.5.0"
-            },
-            "time": "2020-10-28T15:22:07+00:00"
-        },
-        {
             "name": "nikic/php-parser",
             "version": "v4.10.4",
             "source": {
@@ -3518,33 +3552,29 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.19",
+            "version": "v9.99.100",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "446fc9faa5c2a9ddf65eb7121c0af7e857295241"
+                "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/446fc9faa5c2a9ddf65eb7121c0af7e857295241",
-                "reference": "446fc9faa5c2a9ddf65eb7121c0af7e857295241",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/996434e5492cb4c3edcb9168db6fbb1359ef965a",
+                "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.0"
+                "php": ">= 7"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*|5.*"
+                "phpunit/phpunit": "4.*|5.*",
+                "vimeo/psalm": "^1"
             },
             "suggest": {
                 "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
             },
             "type": "library",
-            "autoload": {
-                "files": [
-                    "lib/random.php"
-                ]
-            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -3568,7 +3598,7 @@
                 "issues": "https://github.com/paragonie/random_compat/issues",
                 "source": "https://github.com/paragonie/random_compat"
             },
-            "time": "2020-10-15T10:06:57+00:00"
+            "time": "2020-10-15T08:29:30+00:00"
         },
         {
             "name": "php-http/client-common",
@@ -4039,24 +4069,26 @@
         },
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.30",
+            "version": "3.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "136b9ca7eebef78be14abf90d65c5e57b6bc5d36"
+                "reference": "845a2275e886ba9fb386c8f59cb383dd9c8963e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/136b9ca7eebef78be14abf90d65c5e57b6bc5d36",
-                "reference": "136b9ca7eebef78be14abf90d65c5e57b6bc5d36",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/845a2275e886ba9fb386c8f59cb383dd9c8963e9",
+                "reference": "845a2275e886ba9fb386c8f59cb383dd9c8963e9",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3"
+                "paragonie/constant_time_encoding": "^1|^2",
+                "paragonie/random_compat": "^1.4|^2.0|^9.99.99",
+                "php": ">=5.6.1"
             },
             "require-dev": {
                 "phing/phing": "~2.7",
-                "phpunit/phpunit": "^4.8.35|^5.7|^6.0|^9.4",
+                "phpunit/phpunit": "^5.7|^6.0|^9.4",
                 "squizlabs/php_codesniffer": "~2.0"
             },
             "suggest": {
@@ -4071,7 +4103,7 @@
                     "phpseclib/bootstrap.php"
                 ],
                 "psr-4": {
-                    "phpseclib\\": "phpseclib/"
+                    "phpseclib3\\": "phpseclib/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4128,7 +4160,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpseclib/phpseclib/issues",
-                "source": "https://github.com/phpseclib/phpseclib/tree/2.0.30"
+                "source": "https://github.com/phpseclib/phpseclib/tree/3.0.4"
             },
             "funding": [
                 {
@@ -4144,72 +4176,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-12-17T05:42:04+00:00"
-        },
-        {
-            "name": "piwik/device-detector",
-            "version": "3.13.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/matomo-org/device-detector.git",
-                "reference": "e90533302c58acf41f0d8075a0151537d0ddf34d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/matomo-org/device-detector/zipball/e90533302c58acf41f0d8075a0151537d0ddf34d",
-                "reference": "e90533302c58acf41f0d8075a0151537d0ddf34d",
-                "shasum": ""
-            },
-            "require": {
-                "mustangostang/spyc": "*",
-                "php": ">=5.5"
-            },
-            "require-dev": {
-                "fabpot/php-cs-fixer": "~1.7",
-                "matthiasmullie/scrapbook": "@stable",
-                "phpunit/phpunit": "^4.8.36",
-                "psr/cache": "^1.0",
-                "psr/simple-cache": "^1.0"
-            },
-            "suggest": {
-                "doctrine/cache": "Can directly be used for caching purpose",
-                "ext-yaml": "Necessary for using the Pecl YAML parser"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "DeviceDetector\\": ""
-                },
-                "exclude-from-classmap": [
-                    "Tests/"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "The Matomo Team",
-                    "email": "hello@matomo.org",
-                    "homepage": "https://matomo.org/team/"
-                }
-            ],
-            "description": "The Universal Device Detection library, that parses User Agents and detects devices (desktop, tablet, mobile, tv, cars, console, etc.), clients (browsers, media players, mobile apps, feed readers, libraries, etc), operating systems, devices, brands and models.",
-            "homepage": "https://matomo.org",
-            "keywords": [
-                "devicedetection",
-                "parser",
-                "useragent"
-            ],
-            "support": {
-                "forum": "http://forum.matomo.org/",
-                "issues": "https://github.com/matomo-org/device-detector/issues",
-                "source": "https://github.com/matomo-org/piwik",
-                "wiki": "https://dev.matomo.org/"
-            },
-            "abandoned": "matomo/device-detector",
-            "time": "2020-10-25T10:17:36+00:00"
+            "time": "2021-01-25T19:02:05+00:00"
         },
         {
             "name": "predis/predis",
@@ -4968,16 +4935,16 @@
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v5.6.1",
+            "version": "v6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "430d14c01836b77c28092883d195a43ce413ee32"
+                "reference": "503c29d3cb7cf477513ea6e8620dd2e98a930e5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/430d14c01836b77c28092883d195a43ce413ee32",
-                "reference": "430d14c01836b77c28092883d195a43ce413ee32",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/503c29d3cb7cf477513ea6e8620dd2e98a930e5f",
+                "reference": "503c29d3cb7cf477513ea6e8620dd2e98a930e5f",
                 "shasum": ""
             },
             "require": {
@@ -4996,7 +4963,6 @@
                 "doctrine/dbal": "^2.10|^3.0",
                 "doctrine/doctrine-bundle": "^1.11|^2.0",
                 "doctrine/orm": "^2.5",
-                "nyholm/psr7": "^1.1",
                 "symfony/browser-kit": "^4.4|^5.0",
                 "symfony/doctrine-bridge": "^4.4|^5.0",
                 "symfony/dom-crawler": "^4.4|^5.0",
@@ -5005,7 +4971,6 @@
                 "symfony/monolog-bridge": "^4.0|^5.0",
                 "symfony/monolog-bundle": "^3.2",
                 "symfony/phpunit-bridge": "^4.4.9|^5.0.9",
-                "symfony/psr-http-message-bridge": "^1.1",
                 "symfony/security-bundle": "^4.4|^5.0",
                 "symfony/twig-bundle": "^4.4|^5.0",
                 "symfony/yaml": "^4.4|^5.0",
@@ -5014,7 +4979,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.6.x-dev"
+                    "dev-master": "6.0.x-dev"
                 }
             },
             "autoload": {
@@ -5042,9 +5007,9 @@
             ],
             "support": {
                 "issues": "https://github.com/sensiolabs/SensioFrameworkExtraBundle/issues",
-                "source": "https://github.com/sensiolabs/SensioFrameworkExtraBundle/tree/v5.6.1"
+                "source": "https://github.com/sensiolabs/SensioFrameworkExtraBundle/tree/v6.0.0"
             },
-            "time": "2020-08-25T19:10:18+00:00"
+            "time": "2021-01-20T11:24:04+00:00"
         },
         {
             "name": "sentry/sdk",
@@ -10490,6 +10455,128 @@
                 }
             ],
             "time": "2021-01-05T15:40:36+00:00"
+        },
+        {
+            "name": "vonage/client",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Vonage/vonage-php-sdk.git",
+                "reference": "29f23e317d658ec1c3e55cf778992353492741d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Vonage/vonage-php-sdk/zipball/29f23e317d658ec1c3e55cf778992353492741d7",
+                "reference": "29f23e317d658ec1c3e55cf778992353492741d7",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.0",
+                "php": ">=7.2",
+                "vonage/client-core": "^2.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Lytle",
+                    "email": "tim@nexmo.com",
+                    "homepage": "http://twitter.com/tjlytle",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Michael Heap",
+                    "email": "michael.heap@vonage.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Lorna Mitchell",
+                    "email": "lorna.mitchell@vonage.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Chris Tankersley",
+                    "email": "chris.tankersley@vonage.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Client for using Vonage's API.",
+            "support": {
+                "email": "devrel@nexmo.com",
+                "issues": "https://github.com/Vonage/vonage-php-sdk/issues",
+                "source": "https://github.com/Vonage/vonage-php-sdk/tree/2.4.0"
+            },
+            "time": "2020-09-10T18:29:08+00:00"
+        },
+        {
+            "name": "vonage/client-core",
+            "version": "2.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Vonage/vonage-php-sdk-core.git",
+                "reference": "c9bd01868339fc1c74e631d73d7333250b8eccbd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Vonage/vonage-php-sdk-core/zipball/c9bd01868339fc1c74e631d73d7333250b8eccbd",
+                "reference": "c9bd01868339fc1c74e631d73d7333250b8eccbd",
+                "shasum": ""
+            },
+            "require": {
+                "composer/package-versions-deprecated": "^1.11",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "laminas/laminas-diactoros": "^2.4",
+                "lcobucci/jwt": "^3.4|^4.0",
+                "php": ">=7.2",
+                "psr/container": "^1.0",
+                "psr/http-client-implementation": "^1.0",
+                "vonage/nexmo-bridge": "^0.1.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": ">=6",
+                "helmich/phpunit-json-assert": "^3.3",
+                "php-http/mock-client": "^1.4",
+                "phpstan/phpstan": "^0.12",
+                "phpunit/phpunit": "^8.5|^9.4",
+                "roave/security-advisories": "dev-latest",
+                "softcreatr/jsonpath": "^0.6.4",
+                "squizlabs/php_codesniffer": "^3.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Vonage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Tankersley",
+                    "email": "chris.tankersley@vonage.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Lorna Mitchell",
+                    "email": "lorna.mitchell@vonage.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "PHP Client for using Vonage's API.",
+            "homepage": "https://developer.nexmo.com",
+            "support": {
+                "docs": "https://developer.nexmo.com",
+                "email": "devrel@vonage.com",
+                "issues": "https://github.com/Vonage/vonage-php-sdk-core/issues",
+                "source": "https://github.com/Vonage/vonage-php-sdk-core"
+            },
+            "time": "2020-12-08T12:13:16+00:00"
         },
         {
             "name": "vonage/nexmo-bridge",

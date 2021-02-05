@@ -5,6 +5,7 @@ namespace App\Entity\OAuth;
 use App\Model\Token;
 use Doctrine\ORM\Mapping as ORM;
 use Lcobucci\JWT\Builder;
+use Lcobucci\JWT\Configuration;
 use Lcobucci\JWT\Signer\Key;
 use Lcobucci\JWT\Signer\Rsa\Sha256;
 use League\OAuth2\Server\CryptKey;
@@ -17,19 +18,19 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class AccessToken extends Token implements AccessTokenEntityInterface, UserInterface
 {
-    public function convertToJWT(CryptKey $privateKey)
-    {
-        return (new Builder())
-            ->setAudience($this->getClient()->getIdentifier())
-            ->setId($this->getIdentifier(), true)
-            ->setIssuedAt(time())
-            ->setNotBefore(time())
-            ->setExpiration($this->getExpiryDateTime()->getTimestamp())
-            ->setSubject($this->getUserIdentifier()->getUsername())
-            ->set('scopes', $this->getScopes())
-            ->sign(new Sha256(), new Key($privateKey->getKeyPath(), $privateKey->getPassPhrase()))
-            ->getToken();
-    }
+//    public function convertToJWT(CryptKey $privateKey)
+//    {
+//        $key = Key\LocalFileReference::file($privateKey->getKeyPath());
+//        $config = Configuration::forAsymmetricSigner(new Sha256(), $key, $key);
+//        return $config->builder()
+//            // ->identifiedBy($this->getClient()->getIdentifier())
+//            ->identifiedBy($this->getIdentifier(), true)
+//            ->issuedAt(time())
+//            ->canOnlyBeUsedAfter(time())
+//            ->expiresAt($this->getExpiryDateTime()->getTimestamp())
+//            ->relatedTo($this->getUserIdentifier()->getUsername())
+//            ->withClaim('scopes', $this->getScopes())
+//    }
 
     public function getRoles()
     {
@@ -57,4 +58,13 @@ class AccessToken extends Token implements AccessTokenEntityInterface, UserInter
         // TODO: Implement eraseCredentials() method.
     }
 
+    public function setPrivateKey(CryptKey $privateKey)
+    {
+        // TODO: Implement setPrivateKey() method.
+    }
+
+    public function __toString()
+    {
+        return "";
+    }
 }

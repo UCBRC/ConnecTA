@@ -14,7 +14,7 @@ class ClientRepository extends ServiceEntityRepository implements ClientReposito
         parent::__construct($registry, Client::class);
     }
 
-    public function getClientEntity($clientIdentifier, $grantType, $clientSecret = null, $mustValidateSecret = true)
+    public function getClientEntity($clientIdentifier, $grantType = null, $clientSecret = null, $mustValidateSecret = true)
     {
 
         $client = $this->getClientById($clientIdentifier);
@@ -31,5 +31,13 @@ class ClientRepository extends ServiceEntityRepository implements ClientReposito
     public function getClientById($id)
     {
         return $this->findOneBy(["clientId" => $id]);
+    }
+
+    public function validateClient($clientIdentifier, $clientSecret, $grantType)
+    {
+        $client = $this->getClientById($clientIdentifier);
+        if (@null === $client)
+            return false;
+        return $clientSecret == $client->getSecret();
     }
 }

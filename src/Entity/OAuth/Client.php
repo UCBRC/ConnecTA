@@ -133,4 +133,8 @@ class Client implements ClientEntityInterface
     }
 
 
+    public function isConfidential()
+    {
+        return true;
+    }
 }

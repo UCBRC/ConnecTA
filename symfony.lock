@@ -122,6 +122,9 @@
     "laminas/laminas-zendframework-bridge": {
         "version": "1.1.1"
     },
+    "lcobucci/clock": {
+        "version": "2.0.0"
+    },
     "lcobucci/jwt": {
         "version": "3.2.2"
     },
@@ -137,6 +140,9 @@
     "massivescale/celery-php": {
         "version": "2.1.2"
     },
+    "matomo/device-detector": {
+        "version": "4.1.0"
+    },
     "monolog/monolog": {
         "version": "1.23.0"
     },
@@ -148,12 +154,6 @@
     },
     "mustangostang/spyc": {
         "version": "0.6.2"
-    },
-    "nexmo/client": {
-        "version": "1.2.0"
-    },
-    "nexmo/client-core": {
-        "version": "1.8.1"
     },
     "nikic/php-parser": {
         "version": "v4.0.0"
@@ -211,9 +211,6 @@
     },
     "phpseclib/phpseclib": {
         "version": "2.0.10"
-    },
-    "piwik/device-detector": {
-        "version": "3.9.2"
     },
     "predis/predis": {
         "version": "v1.1.1"
@@ -559,6 +556,12 @@
     },
     "twig/twig": {
         "version": "v2.4.4"
+    },
+    "vonage/client": {
+        "version": "2.4.0"
+    },
+    "vonage/client-core": {
+        "version": "2.7.1"
     },
     "vonage/nexmo-bridge": {
         "version": "0.1.0"
