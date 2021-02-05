@@ -2,7 +2,7 @@
 
 namespace App\Controller\Basic;
 
-use App\Controller\AbstractController;
+use App\Controller\ConnecTAController;
 use App\Entity\Log;
 use App\Entity\School\Alumni;
 use App\Entity\Preference;
@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class AdminController extends AbstractController
+class AdminController extends ConnecTAController
 {
     /**
      * @Route("/admin", name="admin")

@@ -2,7 +2,7 @@
 
 namespace App\Controller\Media;
 
-use App\Controller\AbstractController;
+use App\Controller\ConnecTAController;
 use App\Entity\Media\Comment;
 use App\Entity\Media\Gallery;
 use App\Entity\Media\Photo;
@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Translation\TranslatorInterface;
 
-class GalleryController extends AbstractController
+class GalleryController extends ConnecTAController
 {
 
     CONST THUMB_FOLDER = "storage/photos/thumb";

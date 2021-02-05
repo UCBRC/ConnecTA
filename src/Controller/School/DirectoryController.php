@@ -2,7 +2,7 @@
 
 namespace App\Controller\School;
 
-use App\Controller\AbstractController;
+use App\Controller\ConnecTAController;
 use App\Entity\School\Alumni;
 use App\Model\Permission;
 use App\Service\CacheService;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Translation\TranslatorInterface;
 
-class DirectoryController extends AbstractController
+class DirectoryController extends ConnecTAController
 {
     /**
      * @Route("/alumni/directory/search", methods="POST")

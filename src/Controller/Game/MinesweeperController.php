@@ -2,9 +2,9 @@
 
 namespace App\Controller\Game;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class MinesweeperController extends Controller
+class MinesweeperController extends AbstractController
 {
 
 }

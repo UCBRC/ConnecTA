@@ -2,7 +2,7 @@
 
 namespace App\Controller\Game;
 
-use App\Controller\AbstractController;
+use App\Controller\ConnecTAController;
 use App\Entity\Game\Game;
 use App\Entity\Game\Rank;
 use App\Model\Normalizer\GameNormalizer;
@@ -10,7 +10,7 @@ use App\Model\Permission;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
-class AbstractRankController extends AbstractController
+class AbstractRankController extends ConnecTAController
 {
     /**
      * @Route("/game/rank")

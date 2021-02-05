@@ -2,7 +2,7 @@
 
 namespace App\Controller\User;
 
-use App\Controller\AbstractController;
+use App\Controller\ConnecTAController;
 use App\Entity\OAuth\Client;
 use App\Entity\Preference;
 use App\Entity\User\Device;
@@ -15,7 +15,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class DeviceController extends AbstractController
+class DeviceController extends ConnecTAController
 {
     /**
      * @Route("device/announcement/ios", methods="GET")

@@ -2,10 +2,10 @@
 
 namespace App\Controller\Basic;
 
-use App\Controller\AbstractController;
+use App\Controller\ConnecTAController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-class LogController extends AbstractController
+class LogController extends ConnecTAController
 {
     /**
      * @Route("/log", name="log")

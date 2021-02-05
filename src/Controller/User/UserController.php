@@ -2,7 +2,7 @@
 
 namespace App\Controller\User;
 
-use App\Controller\AbstractController;
+use App\Controller\ConnecTAController;
 use App\Entity\OAuth\AccessToken;
 use App\Entity\OAuth\RefreshToken;
 use App\Entity\School\Alumni;
@@ -30,7 +30,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Translation\TranslatorInterface;
 
-class UserController extends AbstractController
+class UserController extends ConnecTAController
 {
     /**
      * @Route("/user/register", name="register", methods="POST")

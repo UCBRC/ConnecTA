@@ -2,14 +2,14 @@
 
 namespace App\Controller\Basic;
 
-use App\Controller\AbstractController;
+use App\Controller\ConnecTAController;
 use App\Entity\Preference;
 use DeviceDetector\DeviceDetector;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 
-class PageController extends AbstractController
+class PageController extends ConnecTAController
 {
     /**
      * @Route("/",name="index",methods="GET")

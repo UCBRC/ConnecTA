@@ -2,7 +2,7 @@
 
 namespace App\Controller\User;
 
-use App\Controller\AbstractController;
+use App\Controller\ConnecTAController;
 use App\Entity\OAuth\Client;
 use App\Model\Permission;
 use App\Service\AliyunOSS;
@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class OAuthController extends AbstractController
+class OAuthController extends ConnecTAController
 {
     /**
      * @var \League\OAuth2\Server\AuthorizationServer

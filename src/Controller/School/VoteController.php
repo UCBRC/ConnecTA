@@ -9,7 +9,7 @@
 namespace App\Controller\School;
 
 
-use App\Controller\AbstractController;
+use App\Controller\ConnecTAController;
 use App\Entity\School\Ticket;
 use App\Entity\School\Vote;
 use App\Model\Permission;
@@ -26,7 +26,7 @@ use Symfony\Component\Translation\TranslatorInterface;
  * @deprecated No longer used.
  */
 // Ctrl + Slash to recover
-class VoteController extends AbstractController
+class VoteController extends ConnecTAController
 {
 //    /**
 //     * @Route("/school/vote/list", methods="GET")

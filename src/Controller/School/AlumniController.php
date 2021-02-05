@@ -2,7 +2,7 @@
 
 namespace App\Controller\School;
 
-use App\Controller\AbstractController;
+use App\Controller\ConnecTAController;
 use App\Entity\School\Alumni;
 use App\Entity\School\Ticket;
 use App\Model\Normalizer\UuidNormalizer;
@@ -18,7 +18,7 @@ use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-class AlumniController extends AbstractController
+class AlumniController extends ConnecTAController
 {
 
     /**

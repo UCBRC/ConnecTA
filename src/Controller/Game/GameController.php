@@ -2,7 +2,7 @@
 
 namespace App\Controller\Game;
 
-use App\Controller\AbstractController;
+use App\Controller\ConnecTAController;
 use App\Entity\Game\Game;
 use App\Entity\Game\Rank;
 use App\Model\Permission;
@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class GameController extends AbstractController
+class GameController extends ConnecTAController
 {
 
     /**

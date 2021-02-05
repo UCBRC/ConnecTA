@@ -2,7 +2,7 @@
 
 namespace App\Controller\User;
 
-use App\Controller\AbstractController;
+use App\Controller\ConnecTAController;
 use App\Entity\User\Chat;
 use App\Entity\User\User;
 use App\Model\Permission;
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Translation\TranslatorInterface;
 
-class ChatController extends AbstractController
+class ChatController extends ConnecTAController
 {
 
     /**

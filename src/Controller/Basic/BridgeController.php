@@ -9,14 +9,14 @@
 namespace App\Controller\Basic;
 
 
-use App\Controller\AbstractController;
+use App\Controller\ConnecTAController;
 use App\Entity\User\User;
 use App\Service\NotificationService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class BridgeController extends AbstractController
+class BridgeController extends ConnecTAController
 {
 
     /**

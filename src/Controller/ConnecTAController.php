@@ -9,10 +9,10 @@ use App\Model\ApiResponse;
 use App\Model\Permission;
 use App\Service\Notification\NotificationService;
 use App\Service\SettingService;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Security\Csrf\CsrfToken;
 
-class AbstractController extends Controller
+class ConnecTAController extends AbstractController
 {
 
     public function response()
