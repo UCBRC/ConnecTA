@@ -10,6 +10,7 @@ use App\Model\Normalizer\UuidNormalizer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\JsonSerializableNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -25,11 +26,14 @@ class ApiResponse
     public function __construct($realname = false)
     {
         $encoder = new JsonEncoder();
-        $normalizer = new ObjectNormalizer();
-        $normalizer->setCircularReferenceLimit(0);
-        $normalizer->setCircularReferenceHandler(function ($object) {
-            return null;
-        });
+
+        $defaultContext = [
+            AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => function ($object) {
+                return "_circular_";
+            },
+            AbstractNormalizer::CIRCULAR_REFERENCE_LIMIT => 0,
+        ];
+        $normalizer = new ObjectNormalizer(null, null, null, null, null, null, $defaultContext);
         $dateNormalizer = new DateTimeNormalizer();
         $photoNormalizer = new PhotoNormalizer();
         $userNormalizer = new UserNormalizer($realname);
