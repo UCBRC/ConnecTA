@@ -23,7 +23,7 @@ jobs:
         node-version: 14.x
 
     - name: Setup Bower
-      run: npm install bower
+      run: npm install --no-package-lock -g bower
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
