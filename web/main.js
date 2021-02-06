@@ -17,8 +17,8 @@ import VueI18n from 'vue-i18n'
 import VueWorker from 'vue-worker'
 import Datetime from 'vue-datetime'
 import infiniteScroll from 'vue-infinite-scroll'
-import "vue-simple-calendar/dist/static/css/default.css"
-import "vue-simple-calendar/dist/static/css/holidays-us.css"
+import "vue-simple-calendar/static/css/default.css"
+import "vue-simple-calendar/static/css/holidays-us.css"
 import VueLazyload from 'vue-lazyload'
 import Cookies from 'js-cookie'
 import moment from 'moment-timezone'

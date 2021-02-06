@@ -98,10 +98,11 @@
                         <md-icon>gamepad</md-icon>
                         <span class='md-list-item-text'>{{ $t('game') }}</span></md-list-item>
 -->
+                    <!--
                     <md-list-item to='/media/gallery'>
                         <md-icon>photo_library</md-icon>
                         <span class='md-list-item-text'>{{ $t('gallery') }}</span></md-list-item>
-
+                    -->
                     <!--
                     <md-list-item to='/school/vote'>
                         <md-icon>plus_one</md-icon>
