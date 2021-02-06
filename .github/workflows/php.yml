@@ -6,15 +6,6 @@ on:
   pull_request:
     branches: [ master ]
 
-services:
-  mysql:
-    image: mysql:8.0
-    env:
-      MYSQL_ALLOW_EMPTY_PASSWORD: yes
-      MYSQL_DATABASE: nfls_test
-    ports:
-      - 3306
-
 jobs:
   build:
 
@@ -24,6 +15,11 @@ jobs:
     - uses: actions/checkout@v2
       with:
         submodules: 'recursive'
+
+    - name: Setup Database
+      run: |
+        sudo systemctl start mysql.service
+        mysql -uroot -h127.0.0.1 -proot -e 'CREATE DATABASE IF NOT EXISTS nfls_test;'
 
     - name: Run Production Script
       run: sh ./prod.sh
