@@ -38,7 +38,7 @@ def sendEmail(sender, sender_name, receiver, subject, content, content_type):
 def sendSMS(receiver, template_code, params):
     cli = AliyunSMS(access_key_id=config.aliyun_id, access_secret=config.aliyun_key)
     cli.request(phone_numbers=receiver,
-                sign='NFLSIO',
+                sign='UCBRC',
                 template_code=template_code,
                 template_param=params)
     print("SMS: Receiver: " + receiver + ", Template: " + template_code + ", Params: " + json.dumps(params))

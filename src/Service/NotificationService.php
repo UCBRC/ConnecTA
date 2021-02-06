@@ -66,9 +66,9 @@ class NotificationService
                     $this->cacheService->codeWrite($email, $code, $action);
                     return $this->mailService->send(
                         "no-reply@nfls.io",
-                        "NFLSIO",
+                        "UCBRC",
                         $email,
-                        "【NFLSIO】账户注册 Account Registering",
+                        "【UCBRC】账户注册 Account Registering",
                         $this->mailRenderer->renderCodePage(
                             "注册新账户",
                             "registering a new account",
@@ -89,9 +89,9 @@ class NotificationService
                     $this->cacheService->codeWrite($email, $code, $action);
                     return $this->mailService->send(
                         "no-reply@nfls.io",
-                        "NFLSIO",
+                        "UCBRC",
                         $email,
-                        "【NFLSIO】重置密码 Password Resetting",
+                        "【UCBRC】重置密码 Password Resetting",
                         $this->mailRenderer->renderCodePage(
                             "重置账户密码",
                             "resetting your password",
@@ -112,9 +112,9 @@ class NotificationService
                     $this->cacheService->codeWrite($email, $code, $action);
                     return $this->mailService->send(
                         "no-reply@nfls.io",
-                        "NFLSIO",
+                        "UCBRC",
                         $email,
-                        "【NFLSIO】邮箱绑定 Email Binding",
+                        "【UCBRC】邮箱绑定 Email Binding",
                         $this->mailRenderer->renderCodePage(
                             "绑定当前邮箱",
                             "binding this email with your account",
@@ -163,9 +163,9 @@ class NotificationService
         }
         $this->mailService->send(
             "alumni@nfls.io",
-            "NFLSIO 实名认证系统",
+            "UCBRC 实名认证系统",
             $user->getEmail(),
-            "【NFLSIO】实名认证 Verification",
+            "【UCBRC】实名认证 Verification",
             $this->mailRenderer->renderRealnameSucceeded(
                 $statusCN,
                 $statusEN,
@@ -188,9 +188,9 @@ class NotificationService
     public function realnameFailed(User $user) {
         $this->mailService->send(
             "alumni@nfls.io",
-            "NFLSIO 实名认证系统",
+            "UCBRC 实名认证系统",
             $user->getEmail(),
-            "【NFLSIO】实名认证 Verification",
+            "【UCBRC】实名认证 Verification",
             $this->mailRenderer->renderRealnameFailed());
         $this->APNService->bulk(
             $this->getDevices($user),
@@ -209,9 +209,9 @@ class NotificationService
     public function notifyNewMessage(Chat $chat) {
         $this->mailService->send(
             "message@nfls.io",
-            "NFLSIO 私信",
+            "UCBRC 私信",
             $chat->getReceiver()->getEmail(),
-            "【NFLSIO】私信 PM",
+            "【UCBRC】私信 PM",
             $this->mailRenderer->renderNewMessagePage($chat->getSender()->getUsername(), $chat->getContent())
         );
         $this->APNService->bulk(
@@ -239,9 +239,9 @@ class NotificationService
         }
         $this->mailService->bulk(
             "study@nfls.io",
-            "NFLSIO Blackboard",
+            "UCBRC Blackboard",
             $emails,
-            "【NFLSIO】New Notice",
+            "【UCBRC】New Notice",
             $this->mailRenderer->renderNoticePage($teacher->getValidAuth()->getEnglishName(), $class, $title, $content)
         );
         $this->SMSService->bulk(
@@ -276,9 +276,9 @@ class NotificationService
         }
         $this->mailService->bulk(
             "study@nfls.io",
-            "NFLSIO Blackboard",
+            "UCBRC Blackboard",
             $emails,
-            "【NFLSIO】Deadline Reminder",
+            "【UCBRC】Deadline Reminder",
             $this->mailRenderer->renderDeadlinePage($teacher->getValidAuth()->getEnglishName(), $title, $deadline, $content)
         );
         $this->SMSService->bulk(

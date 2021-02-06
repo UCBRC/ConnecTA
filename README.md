@@ -5,6 +5,9 @@ This repository contains code for backend including api service and frontend for
 We are now using Symfony as our backend framework, and Vue as our frontend framework.
 
 ## Installation
+### Third Party
+- Sendgrid.com for Email Delivery Services
+- Submail.cn for SMS Delivery Services for users in China
 ### Environment
 PHP >= 8.0, MySQL >= 8.0, Redis, Composer, NPM, Bower
 ### Configuration

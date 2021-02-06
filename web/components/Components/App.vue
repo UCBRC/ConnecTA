@@ -75,7 +75,7 @@
 
             <md-app-drawer :md-active.sync='menuVisible' md-persistent='full'>
                 <md-toolbar class='md-transparent' md-elevation='0'>
-                    NFLSIO
+                    UCBRC
                     <div class='md-toolbar-section-end'>
                         <md-button class='md-icon-button md-dense' @click='menuVisible = !menuVisible'>
                             <md-icon>keyboard_arrow_left</md-icon>
@@ -226,7 +226,7 @@
             }, ct(response) {
                 this.gResponse = response
             }, changeTitle(title) {
-                document.title = title + " - NFLSIO "
+                document.title = title + " - UCBRC "
                 this.title = title
             }, prepareRecaptcha() {
                 document.getElementById('recaptcha').style.visibility = 'visible';
