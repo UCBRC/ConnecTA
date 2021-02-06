@@ -12,14 +12,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout Code
+      uses: actions/checkout@v2
       with:
         submodules: 'recursive'
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: 14.x
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.0'
+        extensions: mysqli, intl, curl, pdo_mysql, openssl
 
     - name: Setup Database
       run: |
         sudo systemctl start mysql.service
         mysql -uroot -h127.0.0.1 -proot -e 'CREATE DATABASE IF NOT EXISTS nfls_test;'
 
-    - name: Run Production Script
+    - name: Test for Production
       run: sh ./prod.sh
