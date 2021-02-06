@@ -6,6 +6,15 @@ on:
   pull_request:
     branches: [ master ]
 
+services:
+  mysql:
+    image: mysql:8.0
+    env:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_DATABASE: nfls_test
+    ports:
+      - 3306
+
 jobs:
   build:
 
@@ -13,6 +22,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        submodules: 'recursive'
 
     - name: Run Production Script
       run: sh ./prod.sh
