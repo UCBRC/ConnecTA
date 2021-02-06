@@ -60,7 +60,7 @@ class RefreshToken implements RefreshTokenEntityInterface
         return $this->expiryTime;
     }
 
-    public function setExpiryDateTime(\DateTime $dateTime)
+    public function setExpiryDateTime(\DateTimeImmutable $dateTime)
     {
         $this->expiryTime = $dateTime;
     }
