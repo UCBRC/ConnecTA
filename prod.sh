@@ -4,6 +4,7 @@ composer install --ignore-platform-reqs
 cd public/assets
 bower install --allow-root
 cd ../..
+export NODE_OPTIONS="--max-old-space-size=2048"
 ./node_modules/.bin/encore production
 bin/console doctrine:schema:update --force
 bin/console cache:clear
