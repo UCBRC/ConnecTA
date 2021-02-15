@@ -6,14 +6,17 @@ use App\Entity\User\User;
 use App\Model\PrivacyLevel;
 use Doctrine\ORM\Mapping as ORM;
 use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 use Symfony\Component;
 use Symfony\Component\Validator\Constraints as Assert;
+use Ramsey\Uuid\Doctrine\UuidGenerator;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\School\AlumniRepository")
  */
 class Alumni
 {
+
     const STATUS_NOT_SUBMITTED = 0;
     const STATUS_SUBMITTED = 1;
     const STATUS_CANCELED = 2;
@@ -23,12 +26,12 @@ class Alumni
     const STATUS_EXPIRED = 6;
     const STATUS_NOT_NFLS = 7;
     /**
-     * @var Uuid
+     * @var \Ramsey\Uuid\UuidInterface
      *
      * @ORM\Id
-     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\Column(type="uuid_binary_ordered_time", unique=true)
      * @ORM\GeneratedValue(strategy="CUSTOM")
-     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidGenerator")
+     * @ORM\CustomIdGenerator(class="Ramsey\Uuid\Doctrine\UuidOrderedTimeGenerator")
      */
     private $id;
     /**
@@ -201,9 +204,9 @@ class Alumni
     private $expireAt;
 
     /**
-     * @return Uuid
+     * @return UuidInterface
      */
-    public function getId(): Uuid
+    public function getId(): UuidInterface
     {
         return $this->id;
     }

@@ -12,6 +12,7 @@ use Proxies\__CG__\App\Entity\Preference;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
@@ -20,14 +21,20 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class AlumniController extends ConnecTAController
 {
+    /** KernelInterface $appKernel */
+    private $appKernel;
 
+    public function __construct(KernelInterface $appKernel)
+    {
+        $this->appKernel = $appKernel;
+    }
     /**
      * @Route("alumni/form",methods="GET")
      */
     public function getForm(Request $request)
     {
         $this->denyAccessUnlessGranted(Permission::IS_LOGIN);
-        return $this->response()->response(json_decode(file_get_contents($this->get('kernel')->getRootDir() . "/Files/Form.json")));
+        return $this->response()->response(json_decode(file_get_contents($this->appKernel->getProjectDir() . "/src/Files/Form.json")));
     }
 
     /**
@@ -44,7 +51,7 @@ class AlumniController extends ConnecTAController
     public function getCountries()
     {
         $this->denyAccessUnlessGranted(Permission::IS_LOGIN);
-        return $this->response()->response(json_decode(file_get_contents($this->get('kernel')->getRootDir() . "/Files/Countries.json")));
+        return $this->response()->response(json_decode(file_get_contents($this->appKernel->getProjectDir() . "/src/Files/Countries.json")));
     }
 
     /**
