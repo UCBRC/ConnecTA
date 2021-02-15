@@ -632,6 +632,7 @@ class UserController extends ConnecTAController
 
     private function getDefaultAvatar($username, $id)
     {
-        file_put_contents($this->get('kernel')->getRootDir() . "/../public/avatar/" . strval($id) . ".png", fopen('http://identicon.relucks.org/' . md5($username) . '?size=200', 'r'));
+        $this->container->get("kernel.project_dir");
+        file_put_contents($this->container->get("kernel.project_dir") . "/public/avatar/" . strval($id) . ".png", fopen('http://identicon.relucks.org/' . md5($username) . '?size=200', 'r'));
     }
 }

@@ -1,2 +1,4 @@
-celery==5.0.5
-sendgrid==6.6.0
+celery>=5.0.5
+sendgrid>=6.6.0
+redis>=3.5.3
+eventlet>=0.30.1

@@ -18,7 +18,7 @@ use App\Model\MailConstant;
 use App\Type\AliyunTemplateType;
 use App\Type\CodeActionType;
 use App\Type\DeviceType;
-use Doctrine\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Longman\TelegramBot\Telegram;
 
 class NotificationService
@@ -36,7 +36,7 @@ class NotificationService
      */
     private $APNService;
     /**
-     * @var ObjectManager
+     * @var EntityManagerInterface
      */
     private $objectManager;
     /**
@@ -48,7 +48,7 @@ class NotificationService
      */
     private $cacheService;
 
-    public function __construct(ObjectManager $objectManager, CacheService $cacheService, SMSService $SMSService, MailService $mailService, APNSService $APNSService)
+    public function __construct(EntityManagerInterface $objectManager, CacheService $cacheService, SMSService $SMSService, MailService $mailService, APNSService $APNSService)
     {
         $this->objectManager = $objectManager;
         $this->SMSService = $SMSService;
@@ -65,7 +65,7 @@ class NotificationService
                     $code = $this->getRandomString();
                     $this->cacheService->codeWrite($email, $code, $action);
                     return $this->mailService->send(
-                        "no-reply@nfls.io",
+                        "no-reply@betterrelations.org",
                         "UCBRC",
                         $email,
                         "【UCBRC】账户注册 Account Registering",
@@ -88,7 +88,7 @@ class NotificationService
                     $code = $this->getRandomString();
                     $this->cacheService->codeWrite($email, $code, $action);
                     return $this->mailService->send(
-                        "no-reply@nfls.io",
+                        "no-reply@betterrelations.org",
                         "UCBRC",
                         $email,
                         "【UCBRC】重置密码 Password Resetting",
@@ -111,7 +111,7 @@ class NotificationService
                     $code = $this->getRandomString();
                     $this->cacheService->codeWrite($email, $code, $action);
                     return $this->mailService->send(
-                        "no-reply@nfls.io",
+                        "no-reply@betterrelations.org",
                         "UCBRC",
                         $email,
                         "【UCBRC】邮箱绑定 Email Binding",
@@ -162,7 +162,7 @@ class NotificationService
             $expiryEN = $expiryCN;
         }
         $this->mailService->send(
-            "alumni@nfls.io",
+            "alumni@betterrelations.org",
             "UCBRC 实名认证系统",
             $user->getEmail(),
             "【UCBRC】实名认证 Verification",
@@ -187,7 +187,7 @@ class NotificationService
 
     public function realnameFailed(User $user) {
         $this->mailService->send(
-            "alumni@nfls.io",
+            "alumni@betterrelations.org",
             "UCBRC 实名认证系统",
             $user->getEmail(),
             "【UCBRC】实名认证 Verification",
@@ -208,7 +208,7 @@ class NotificationService
 
     public function notifyNewMessage(Chat $chat) {
         $this->mailService->send(
-            "message@nfls.io",
+            "message@betterrelations.org",
             "UCBRC 私信",
             $chat->getReceiver()->getEmail(),
             "【UCBRC】私信 PM",
@@ -238,7 +238,7 @@ class NotificationService
             array_push($phones, $student->getPhone());
         }
         $this->mailService->bulk(
-            "study@nfls.io",
+            "study@betterrelations.org",
             "UCBRC Blackboard",
             $emails,
             "【UCBRC】New Notice",
@@ -275,7 +275,7 @@ class NotificationService
             array_push($phones, $student->getPhone());
         }
         $this->mailService->bulk(
-            "study@nfls.io",
+            "study@betterrelations.org",
             "UCBRC Blackboard",
             $emails,
             "【UCBRC】Deadline Reminder",

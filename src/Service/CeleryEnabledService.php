@@ -9,7 +9,7 @@
 namespace App\Service;
 
 
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 class CeleryEnabledService
 {
@@ -17,7 +17,7 @@ class CeleryEnabledService
 
     protected $objectManager;
 
-    public function __construct(CeleryService $celeryService, ObjectManager $objectManager)
+    public function __construct(CeleryService $celeryService, EntityManagerInterface $objectManager)
     {
         $this->objectManager = $objectManager;
         $this->celery = $celeryService;

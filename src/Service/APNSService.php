@@ -11,7 +11,7 @@ namespace App\Service;
 
 use App\Entity\User\Device;
 use App\Model\User;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 class APNSService extends CeleryEnabledService
 {

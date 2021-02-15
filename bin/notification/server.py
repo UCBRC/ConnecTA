@@ -1,35 +1,39 @@
 from celery import Celery
-from celery.schedules import crontab
-#import apns2
 import sendgrid
 from sendgrid.helpers.mail import *
+import config
 #import requests
 #from aliyunsms import AliyunSMS
-import config
+#import apns2
+#from celery.schedules import crontab
 import json
 
 app = Celery('notification', broker="redis://127.0.0.1", backend="redis://127.0.0.1")
 # aps = apns2.APNSClient(mode=config.mode, client_cert=config.apns_cert)
-sg = sendgrid.SendGridAPIClient(apikey=config.sendgrid_key)
-app.conf.beat_schedule = {
-    'notice_check': {
-        'task': 'tasks.checkNotice',
-        'schedule': 30.0,
-        'args': ()
-    },
-}
+sg = sendgrid.SendGridAPIClient(api_key=config.sendgrid_key)
 
-callback = config.apns_callback
-
-
-@app.task(name='tasks.checkNotice')
-def checkNotice():
-    requests.get(config.task_url, timeout=3)
+# app.conf.beat_schedule = {
+#     'notice_check': {
+#         'task': 'tasks.checkNotice',
+#         'schedule': 30.0,
+#         'args': ()
+#     },
+# }
+#
+#
+#
+# @app.task(name='tasks.checkNotice')
+# def checkNotice():
+#     requests.get(config.task_url, timeout=3)
 
 
 @app.task(name='tasks.sendEmail')
 def sendEmail(sender, sender_name, receiver, subject, content, content_type):
-    mail = Mail(Email(sender, sender_name), subject, Email(receiver), Content(content_type, content))
+    mail = Mail(
+        Email(sender, sender_name),
+        To(receiver),
+        subject,
+        Content(content_type, content))
     sg.client.mail.send.post(request_body=mail.get())
     print("Email: Receiver: " + receiver + ", Subject: " + subject)
 

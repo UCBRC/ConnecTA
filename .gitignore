@@ -2,7 +2,8 @@ config.py
 # Virtualenv
 # http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
 .Python
-[Bb]in
+bin/console
+bin/notification/config.py
 [Ii]nclude
 [Ll]ib
 [Ll]ib64

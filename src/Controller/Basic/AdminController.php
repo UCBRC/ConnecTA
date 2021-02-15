@@ -94,7 +94,7 @@ class AdminController extends ConnecTAController
                 return $user->getEmail();
             }, $users);
             $mailService->bulk(
-                "announcement@nfls.io",
+                "announcement@betterrelations.org",
                 "NFLS.IO/南外人",
                 $receivers,
                 "【NFLS.IO/南外人】".$request->request->get("title"),
@@ -103,7 +103,7 @@ class AdminController extends ConnecTAController
         } else {
             $user = $this->getDoctrine()->getManager()->getRepository(User::class)->find($receiver);
             $mailService->send(
-                "announcement@nfls.io",
+                "announcement@betterrelations.org",
                 "NFLS.IO/南外人",
                 $user->getEmail(),
                 "【NFLS.IO/南外人】".$request->request->get("title"),
