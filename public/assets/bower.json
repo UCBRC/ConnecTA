@@ -17,7 +17,6 @@
   ],
   "dependencies": {
     "plupload": "2.3.6",
-    "jquery": "^3.3.1",
     "jquery-easyui": "jquery.easyui#^1.5.2"
   }
 }
