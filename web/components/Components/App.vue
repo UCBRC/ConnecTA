@@ -111,11 +111,10 @@
 
                     <md-list-item to='/alumni/auth'>
                         <md-icon>perm_identity</md-icon>
-                        <span class='md-list-item-text'>{{ $t('realname') }}</span></md-list-item>
+                        <span class='md-list-item-text'>{{ $t('realname') }}</span></md-list-item><!--
                     <md-list-item to='/alumni/directory'>
                         <md-icon>info</md-icon>
                         <span class='md-list-item-text'>{{ $t('directory') }}</span></md-list-item>
-<!--
                     <md-list-item href='https://forum.nfls.io'>
                         <md-icon>forum</md-icon>
                         <span class='md-list-item-text'>{{ $t('forum') }}</span></md-list-item>

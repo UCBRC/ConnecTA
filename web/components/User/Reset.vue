@@ -12,10 +12,12 @@
 
                 <md-card-content>
                     <div class="md-layout-row md-layout-wrap md-gutter">
+                        <!--
                         <div class="md-flex md-flex-small-100">
                             <md-radio v-model="way" value="phone">{{ $t("phone") }}</md-radio>
                             <md-radio v-model="way" value="email">{{ $t("email") }}</md-radio>
                         </div>
+                        -->
                         <div v-if="way == 'phone'">
                             <div class="md-flex md-flex-small-100">
                                 <md-field :class="getValidationClass('phone')">
@@ -134,7 +136,7 @@
             passwordMismatch: false,
             text: '',
             warning: false,
-            way: 'phone'
+            way: 'email'
         }),
         validations() {
             return {

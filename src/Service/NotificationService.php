@@ -18,7 +18,7 @@ use App\Model\MailConstant;
 use App\Type\AliyunTemplateType;
 use App\Type\CodeActionType;
 use App\Type\DeviceType;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Longman\TelegramBot\Telegram;
 
 class NotificationService
