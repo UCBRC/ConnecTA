@@ -28,13 +28,13 @@
                         </div>
                     </md-list-item>
                     <md-divider></md-divider>
-                    <md-list-item>
-                        <div class="md-list-item-text">
-                            <span>{{ $t('cas-hours') }}</span>
-                            <span>{{info.point}}</span>
-                        </div>
-                        <md-tooltip md-direction="bottom">{{ $t('cas-prompt') }}</md-tooltip>
-                    </md-list-item>
+<!--                    <md-list-item>-->
+<!--                        <div class="md-list-item-text">-->
+<!--                            <span>{{ $t('cas-hours') }}</span>-->
+<!--                            <span>{{info.point}}</span>-->
+<!--                        </div>-->
+<!--                        <md-tooltip md-direction="bottom">{{ $t('cas-prompt') }}</md-tooltip>-->
+<!--                    </md-list-item>-->
                     <md-divider></md-divider>
                     <md-list-item>
                         <div class="md-list-item-text">
@@ -53,41 +53,41 @@
                         </md-button>
                     </md-list-item>
                     <md-divider></md-divider>
-                    <md-list-item>
-                        <div class="md-list-item-text">
-                            <span>{{ $t('phone') }}</span>
-                            <span>{{info.phone}}</span>
-                        </div>
-                        <md-button class="md-icon-button md-list-action" to="/user/security" :disabled="sending">
-                            <md-icon>edit</md-icon>
-                        </md-button>
-                    </md-list-item>
+<!--                    <md-list-item>-->
+<!--                        <div class="md-list-item-text">-->
+<!--                            <span>{{ $t('phone') }}</span>-->
+<!--                            <span>{{info.phone}}</span>-->
+<!--                        </div>-->
+<!--                        <md-button class="md-icon-button md-list-action" to="/user/security" :disabled="sending">-->
+<!--                            <md-icon>edit</md-icon>-->
+<!--                        </md-button>-->
+<!--                    </md-list-item>-->
                 </md-list>
             </md-card-content>
         </md-card>
 
-        <md-card  style="margin: 10px">
-            <md-card-header>
-                <span class="md-title">隐私设置</span>
-            </md-card-header>
-            <md-card-content>
-                <span class="md-caption">
-                    反爬虫保护可以防止您账户信息被机器人或是网络爬虫自动抓取。<br/>
-                    启用该功能后，用户无法通过修改地址进入您的用户信息页。用户只能通过点击姓名标签进入，即只能通过校友录搜索或是私信页面进入。<br/>
-                </span>
-                <md-checkbox v-model="antiSpider">启用反爬虫保护</md-checkbox>
-                <br/>
-                <md-field>
-                    <label>将我的实名认证完整信息展示给</label>
-                    <md-select v-model="general" name="general" id="general">
-                        <md-option v-for="(level, index) in privacyLevel" :key="index" :value="index">{{ level }}</md-option>
-                    </md-select>
-                </md-field>
-            </md-card-content>
-            <md-card-actions>
-                <md-button class="md-raised md-primary" @click="submit">提交</md-button>
-            </md-card-actions>
-        </md-card>
+<!--        <md-card  style="margin: 10px">-->
+<!--            <md-card-header>-->
+<!--                <span class="md-title">隐私设置</span>-->
+<!--            </md-card-header>-->
+<!--            <md-card-content>-->
+<!--                <span class="md-caption">-->
+<!--                    反爬虫保护可以防止您账户信息被机器人或是网络爬虫自动抓取。<br/>-->
+<!--                    启用该功能后，用户无法通过修改地址进入您的用户信息页。用户只能通过点击姓名标签进入，即只能通过校友录搜索或是私信页面进入。<br/>-->
+<!--                </span>-->
+<!--                <md-checkbox v-model="antiSpider">启用反爬虫保护</md-checkbox>-->
+<!--                <br/>-->
+<!--                <md-field>-->
+<!--                    <label>将我的实名认证完整信息展示给</label>-->
+<!--                    <md-select v-model="general" name="general" id="general">-->
+<!--                        <md-option v-for="(level, index) in privacyLevel" :key="index" :value="index">{{ level }}</md-option>-->
+<!--                    </md-select>-->
+<!--                </md-field>-->
+<!--            </md-card-content>-->
+<!--            <md-card-actions>-->
+<!--                <md-button class="md-raised md-primary" @click="submit">提交</md-button>-->
+<!--            </md-card-actions>-->
+<!--        </md-card>-->
         <md-dialog-prompt
                 :md-active.sync="usernameDialog"
                 v-model="username"
@@ -104,7 +104,7 @@
                 <form @submit.prevent="changeAvatar">
                     <md-field>
                         <label>{{ $t('avatar') }}</label>
-                        <md-file name="avatar" id="avatar" accept="image/*" @md-change="change"/>
+                        <md-file name="avatar" id="avatar" accept="image/jpeg" @md-change="change"/>
                     </md-field>
                 </form>
             </md-dialog-content>

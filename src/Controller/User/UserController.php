@@ -15,6 +15,7 @@ use App\Service\NotificationService;
 use App\Type\AliyunTemplateType;
 use App\Type\CodeActionType;
 use GuzzleHttp\Client;
+use Symfony\Component\HttpKernel\KernelInterface;
 use function GuzzleHttp\Psr7\str;
 use OTPHP\OTP;
 use OTPHP\TOTP;
@@ -32,6 +33,14 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 
 class UserController extends ConnecTAController
 {
+    /** KernelInterface $appKernel */
+    private $appKernel;
+
+    public function __construct(KernelInterface $appKernel)
+    {
+        $this->appKernel = $appKernel;
+    }
+
     /**
      * @Route("/user/register", name="register", methods="POST")
      */
@@ -287,17 +296,21 @@ class UserController extends ConnecTAController
         $this->denyAccessUnlessGranted(Permission::IS_LOGIN);
         $originalPhoto = $request->files->get("photo");
         $path = $originalPhoto->getRealPath();
-        $avatar = new \Imagick($path);
-        $height = $avatar->getImageHeight();
-        $width = $avatar->getImageWidth();
+        // TODO: Switch back to Imagick after it supports PHP8.
+        $image = null;
+        $image = \Safe\imagecreatefromjpeg($path);
+        // TODO: Add for PNG.
+
+
+        $width = imagesx($image);
+        $height = imagesy($image);
+        $avatar = \Safe\imagecreate(500, 500);
         if ($height > $width) {
-            $avatar->cropImage($width, $width, 0, ($height - $width) / 2);
+            \Safe\imagecopyresampled($avatar, $image, 0, 0, 0, ($height - $width) / 2, 500, 500, $width, $width);
         } else {
-            $avatar->cropImage($width, $width, ($width - $height) / 2, 0);
+            \Safe\imagecopyresampled($avatar, $image, 0, 0, ($width - $height) / 2, 0, 500, 500, $height, $height);
         }
-        $avatar->resizeImage(200, 200, \Imagick::FILTER_LANCZOS, 1);
-        $avatar->setImageFormat("png");
-        $avatar->writeImage($this->get('kernel')->getRootDir() . "/../public/avatar/" . strval($this->getUser()->getId()) . ".png");
+        \Safe\imagepng($avatar, $this->appKernel->getProjectDir() . "/public/avatar/" . strval($this->getUser()->getId()) . ".png");
         return $this->response()->response(null, Response::HTTP_OK);
     }
 
@@ -632,7 +645,6 @@ class UserController extends ConnecTAController
 
     private function getDefaultAvatar($username, $id)
     {
-        $this->container->get("kernel.project_dir");
-        file_put_contents($this->container->get("kernel.project_dir") . "/public/avatar/" . strval($id) . ".png", fopen('http://identicon.relucks.org/' . md5($username) . '?size=200', 'r'));
+        file_put_contents($this->appKernel->getProjectDir() . "/public/avatar/" . strval($id) . ".png", fopen('http://identicon.relucks.org/' . md5($username) . '?size=200', 'r'));
     }
 }

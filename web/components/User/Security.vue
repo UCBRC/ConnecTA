@@ -63,30 +63,30 @@
             </md-card-actions>
         </md-card>
 
-        <md-card>
-            <md-card-header>
-                <div class="md-title">{{ $t('change-phone' )}}</div>
-            </md-card-header>
-            <md-card-content>
-                <md-checkbox v-model="form.unbindPhone" v-if="phone !== $t('not-binded') && email !== $t('not-binded')">{{ $t('only-unbind') }}
-                </md-checkbox>
-                <md-field>
-                    <label>{{ $t('phone-current') }}</label>
-                    <md-input name="phone" id="phone" autocomplete="phone" v-model="phone" disabled/>
-                </md-field>
-                <md-field v-if="!form.unbindPhone">
-                    <label>{{ $t('phone-new') }}</label>
-                    <md-input name="newPhone" id="newPhone" v-model="form.newPhone"/>
-                </md-field>
-                <md-field v-if="!form.unbindPhone">
-                    <label>{{ $t('code') }}</label>
-                    <md-input name="phoneCode" id="phoneCode" v-model="form.phoneCode"/>
-                </md-field>
-            </md-card-content>
-            <md-card-actions>
-                <md-button class="md-primary" @click="sendSMS()">{{ $t("send") }}</md-button>
-            </md-card-actions>
-        </md-card>
+<!--        <md-card>-->
+<!--            <md-card-header>-->
+<!--                <div class="md-title">{{ $t('change-phone' )}}</div>-->
+<!--            </md-card-header>-->
+<!--            <md-card-content>-->
+<!--                <md-checkbox v-model="form.unbindPhone" v-if="phone !== $t('not-binded') && email !== $t('not-binded')">{{ $t('only-unbind') }}-->
+<!--                </md-checkbox>-->
+<!--                <md-field>-->
+<!--                    <label>{{ $t('phone-current') }}</label>-->
+<!--                    <md-input name="phone" id="phone" autocomplete="phone" v-model="phone" disabled/>-->
+<!--                </md-field>-->
+<!--                <md-field v-if="!form.unbindPhone">-->
+<!--                    <label>{{ $t('phone-new') }}</label>-->
+<!--                    <md-input name="newPhone" id="newPhone" v-model="form.newPhone"/>-->
+<!--                </md-field>-->
+<!--                <md-field v-if="!form.unbindPhone">-->
+<!--                    <label>{{ $t('code') }}</label>-->
+<!--                    <md-input name="phoneCode" id="phoneCode" v-model="form.phoneCode"/>-->
+<!--                </md-field>-->
+<!--            </md-card-content>-->
+<!--            <md-card-actions>-->
+<!--                <md-button class="md-primary" @click="sendSMS()">{{ $t("send") }}</md-button>-->
+<!--            </md-card-actions>-->
+<!--        </md-card>-->
 
         <md-dialog-alert
                 :md-active.sync="incomplete"

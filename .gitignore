@@ -86,3 +86,4 @@ fabric.properties
 config.py
 
 public/card/*.png
+public/assets/avatar/*.png
