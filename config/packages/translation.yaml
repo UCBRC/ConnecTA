@@ -4,3 +4,4 @@ framework:
         paths:
             - '%kernel.project_dir%/web/translation/backend'
         fallbacks: ['zh']
+        enabled_locales: ['en', 'zh']

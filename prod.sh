@@ -1,6 +1,7 @@
 git submodule update --init --recursive --remote
 npm install
 composer install --ignore-platform-reqs
+composer dump-autoload --no-dev --classmap-authoritative
 cd public/assets
 bower install --allow-root
 cd ../..
