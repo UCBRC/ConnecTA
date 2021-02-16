@@ -9,7 +9,6 @@ use App\Service\APNSService;
 use App\Service\CeleryService;
 use App\Service\MailService;
 use App\Service\SMSService;
-use Longman\TelegramBot\Telegram;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

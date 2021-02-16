@@ -19,7 +19,6 @@ use App\Type\AliyunTemplateType;
 use App\Type\CodeActionType;
 use App\Type\DeviceType;
 use Doctrine\ORM\EntityManagerInterface;
-use Longman\TelegramBot\Telegram;
 
 class NotificationService
 {
@@ -324,8 +323,8 @@ class NotificationService
 
     public function sendTelegram(string $text) {
         try {
-            $telegram = new Telegram($_ENV["TELEGRAM_BOT_KEY"]);
-            $result = \Longman\TelegramBot\Request::sendMessage(['chat_id'=>-1001244396269, 'text'=>$text]);
+//            $telegram = new Telegram($_ENV["TELEGRAM_BOT_KEY"]);
+//            $result = \Longman\TelegramBot\Request::sendMessage(['chat_id'=>-1001244396269, 'text'=>$text]);
         } catch (\Exception $e) {
         }
     }
