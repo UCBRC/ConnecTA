@@ -19,5 +19,5 @@ bin/console cache:clear
 bin/console cache:warmup --env=prod
 
 # Fix Permissions
-chown -R www-data ./
-chgrp -R www-data ./
+# chown -R www-data ./
+# chgrp -R www-data ./
