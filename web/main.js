@@ -6,8 +6,6 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import 'vue-material/dist/vue-material.css'
 import 'vue-material/dist/theme/default.css'
-import Raven from 'raven-js'
-import RavenVue from 'raven-js/plugins/vue'
 import VueI18n from 'vue-i18n'
 import Datetime from 'vue-datetime'
 import infiniteScroll from 'vue-infinite-scroll'
@@ -16,6 +14,9 @@ import moment from 'moment-timezone'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 import VueHcaptcha from '@hcaptcha/vue-hcaptcha';
+import * as Sentry from "@sentry/vue";
+import { Integrations } from "@sentry/tracing";
+let config = require('./config.json');
 
 Vue.use(mavonEditor)
 Vue.use(infiniteScroll)
@@ -25,7 +26,7 @@ Vue.use(VueAxios, axios)
 Vue.use(VueMaterial)
 Vue.use(require('vue-moment'))
 Vue.use(moment)
-Vue.use(vuehcaptcha)
+Vue.use(VueHcaptcha)
 var VueCookie = require('vue-cookie');
 Vue.use(VueCookie);
 
@@ -51,12 +52,15 @@ var i18n = new VueI18n({
     silentTranslationWarn: true
 })
 
-Raven
-    .config('https://a9dbb410043f46369cd2f27763a1be82@sentry.io/282834', {
-        ignoreErrors: ["*Request failed*"],
-    })
-    .addPlugin(RavenVue, Vue)
-    .install();
+Sentry.init({
+    Vue,
+    dsn: config.sentry,
+    integrations: [new Integrations.BrowserTracing()],
+
+    // We recommend adjusting this value in production, or using tracesSampler
+    // for finer control
+    tracesSampleRate: 1.0,
+});
 
 Vue.config.productionTip = false
 
