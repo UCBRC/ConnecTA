@@ -298,19 +298,19 @@ class UserController extends ConnecTAController
         $path = $originalPhoto->getRealPath();
         // TODO: Switch back to Imagick after it supports PHP8.
         $image = null;
-        $image = \Safe\imagecreatefromjpeg($path);
+        $image = imagecreatefromjpeg($path);
         // TODO: Add for PNG.
 
 
         $width = imagesx($image);
         $height = imagesy($image);
-        $avatar = \Safe\imagecreate(500, 500);
+        $avatar = imagecreate(500, 500);
         if ($height > $width) {
-            \Safe\imagecopyresampled($avatar, $image, 0, 0, 0, ($height - $width) / 2, 500, 500, $width, $width);
+            imagecopyresampled($avatar, $image, 0, 0, 0, ($height - $width) / 2, 500, 500, $width, $width);
         } else {
-            \Safe\imagecopyresampled($avatar, $image, 0, 0, ($width - $height) / 2, 0, 500, 500, $height, $height);
+            imagecopyresampled($avatar, $image, 0, 0, ($width - $height) / 2, 0, 500, 500, $height, $height);
         }
-        \Safe\imagepng($avatar, $this->appKernel->getProjectDir() . "/public/avatar/" . strval($this->getUser()->getId()) . ".png");
+        imagepng($avatar, $this->appKernel->getProjectDir() . "/public/avatar/" . strval($this->getUser()->getId()) . ".png");
         return $this->response()->response(null, Response::HTTP_OK);
     }
 
