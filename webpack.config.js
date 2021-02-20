@@ -20,7 +20,6 @@ Encore
         //     i18n:
         // }
     })
-    // create hashed filenames (e.g. app.abc123.css)
     .enableVersioning()
     .addLoader({
         test: /\.(json5?|ya?ml)$/, // target json, json5, yaml and yml files
@@ -31,17 +30,11 @@ Encore
         ]
     })
     .addLoader({
-        test: /\.js$/,
+        test: /\.(js|jsx|tsx|ts)$/,
         loader: 'babel-loader',
         include: [
             resolve('node_modules/webpack-dev-server/client'),
-            resolve('node_modules/markdown-palettes/src'),
-            resolve('node_modules/ali-oss/dist'),
-            resolve('node_modules/ali-oss/lib'),
-            resolve('node_modules/ali-oss/shims'),
             resolve('node_modules/vue-material/src'),
-            resolve('node_modules/vue-material/src'),
-            resolve('node_modules/vue-preview')
         ]
     })
 ;

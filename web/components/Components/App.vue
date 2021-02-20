@@ -161,8 +161,12 @@
 
 <script>
     import Raven from 'raven-js'
+    import Markdown from "../Components/Markdown"
     export default {
         name: 'Dashboard',
+        components: {
+            Markdown
+        },
         data: () => ({
             menuVisible: false,
             title: '',
@@ -262,12 +266,9 @@
                 console.error(error)
                 this.showMsg(this.$t('errors'))
             }
-        }, created: function () {
-            document.getElementById('recaptcha').style.visibility = 'hidden';
         }, mounted: function () {
             this.username = this.$t('not-login')
             this.reload()
-            this.initReCaptcha()
             this.loadWebP()
             if(this.$cookie.get('drop') === "true")
                 this.dropEnabled = true

@@ -119,7 +119,6 @@
         maxValue,
         numeric
     } from 'vuelidate/lib/validators'
-    import VueMarkdown from 'vue-markdown'
     import Markdown from "../Components/Markdown"
 
     export default {
@@ -146,8 +145,7 @@
             header: null
         }),
         components: {
-            Markdown,
-            VueMarkdown
+            Markdown
         },
         validations() {
             return {

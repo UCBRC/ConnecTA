@@ -66,14 +66,12 @@
 </template>
 
 <script>
-    import VueMarkdown from 'vue-markdown'
     import Markdown from "./Components/Markdown"
 
     export default {
         name: "Dashboard",
         components: {
             Markdown,
-            VueMarkdown
         },
         props: ["isAdmin", "isLoggedIn", "isVerified", "webpSupported"],
         data: () => ({

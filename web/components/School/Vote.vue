@@ -16,7 +16,7 @@
                     <div class="md-title">{{ current.title }}</div>
                 </md-card-header>
                 <md-card-content>
-                    <vue-markdown> {{ current.content }}</vue-markdown>
+                    <markdown :markdown="current.content"></markdown>
                     <md-divider></md-divider>
                     <span v-if="code === 401 && !current.enabled" class="md-caption">投票已结束，或尚未开始</span>
                     <span v-if="code === 401 && current.enabled" class="md-caption">您所在的用户组无法投票</span>
@@ -77,11 +77,11 @@
 </template>
 
 <script>
-    import VueMarkdown from 'vue-markdown'
+    import Markdown from "../Components/Markdown"
 
     export default {
         components: {
-            VueMarkdown
+            Markdown
         },
         name: "Vote",
         mounted: function () {

@@ -7,7 +7,7 @@
             </md-card-header>
             <md-card-content>
                 <p align="left">
-                    <vue-markdown v-if="header">{{header}}</vue-markdown>
+                    <markdown v-if="header" :markdown="header"></markdown>
                 </p>
                 <md-divider></md-divider>
                 <form>
@@ -56,7 +56,7 @@
 </template>
 
 <script>
-    import VueMarkdown from 'vue-markdown'
+    import Markdown from "../Components/Markdown"
     export default {
         name: "Realname",
         data: () => ({
@@ -70,7 +70,7 @@
             header: null
         }),
         components: {
-            VueMarkdown
+            Markdown
         },
         mounted: function () {
             this.axios.get("/alumni/header").then((response) => {

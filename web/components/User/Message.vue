@@ -45,7 +45,6 @@
 </template>
 
 <script>
-    import VueMarkdown from 'vue-markdown'
     import infiniteScroll from 'vue-infinite-scroll'
     import Markdown from "../Components/Markdown"
 
@@ -53,8 +52,7 @@
         name: "Message",
         props: ["admin", "loggedIn", "verified", "gResponse"],
         components: {
-            Markdown,
-            VueMarkdown
+            Markdown
         },
         directives: {infiniteScroll},
         data: () => ({
