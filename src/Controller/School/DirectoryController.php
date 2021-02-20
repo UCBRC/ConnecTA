@@ -35,8 +35,8 @@ class DirectoryController extends ConnecTAController
     public function query(Request $request, TranslatorInterface $translator, CacheService $service)
     {
         $this->denyAccessUnlessGranted(Permission::IS_AUTHENTICATED);
-        if(!$this->verifyCaptcha($request->request->get("captcha")))
-            return $this->response()->response($translator->trans("incorrect-captcha"), Response::HTTP_UNAUTHORIZED);
+//        if(!$this->verifyCaptcha($request->request->get("captcha")))
+//            return $this->response()->response($translator->trans("incorrect-captcha"), Response::HTTP_UNAUTHORIZED);
         $text = $request->request->get("name");
         if(is_null($text) || $text == "")
             return $this->response()->response($translator->trans("blank-search"), Response::HTTP_FORBIDDEN);

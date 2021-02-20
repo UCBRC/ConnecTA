@@ -65,9 +65,9 @@ class NotificationService
                     $this->cacheService->codeWrite($email, $code, $action);
                     return $this->mailService->send(
                         "no-reply@betterrelations.org",
-                        "UCBRC",
+                        "ConnecTA",
                         $email,
-                        "【UCBRC】账户注册 Account Registering",
+                        "【ConnecTA】账户注册 Account Registering",
                         $this->mailRenderer->renderCodePage(
                             "注册新账户",
                             "registering a new account",
@@ -88,9 +88,9 @@ class NotificationService
                     $this->cacheService->codeWrite($email, $code, $action);
                     return $this->mailService->send(
                         "no-reply@betterrelations.org",
-                        "UCBRC",
+                        "ConnecTA",
                         $email,
-                        "【UCBRC】重置密码 Password Resetting",
+                        "【ConnecTA】重置密码 Password Resetting",
                         $this->mailRenderer->renderCodePage(
                             "重置账户密码",
                             "resetting your password",
@@ -111,9 +111,9 @@ class NotificationService
                     $this->cacheService->codeWrite($email, $code, $action);
                     return $this->mailService->send(
                         "no-reply@betterrelations.org",
-                        "UCBRC",
+                        "ConnecTA",
                         $email,
-                        "【UCBRC】邮箱绑定 Email Binding",
+                        "【ConnecTA】邮箱绑定 Email Binding",
                         $this->mailRenderer->renderCodePage(
                             "绑定当前邮箱",
                             "binding this email with your account",
@@ -154,63 +154,57 @@ class NotificationService
     public function realnamePassed(User $user, Alumni $alumni) {
         $expiryCN = "无期限";
         $expiryEN = "unlimited";
-        $statusCN = $alumni->readableUserStatus()["zh"];
-        $statusEN = $alumni->readableUserStatus()["en"];
         if(!is_null($alumni->getExpireAt())) {
             $expiryCN = $alumni->getExpireAt()->format("Y-m-d");
             $expiryEN = $expiryCN;
         }
         $this->mailService->send(
-            "alumni@betterrelations.org",
-            "UCBRC 实名认证系统",
+            "no-reply@betterrelations.org",
+            "ConnecTA 账户验证",
             $user->getEmail(),
-            "【UCBRC】实名认证 Verification",
-            $this->mailRenderer->renderRealnameSucceeded(
-                $statusCN,
-                $statusEN,
-                $expiryCN,
-                $expiryEN));
-        $this->APNService->bulk(
-            $this->getDevices($user),
-            "实名认证审核通过",
-            "Verification passed",
-            "您的实名认证审核已通过，有效期至$expiryCN ，当前身份为$statusCN 。You have been verified as $statusEN, which expires on $expiryEN",
-            null,
-            null,
-            null);
-        $this->SMSService->send(
-            $user->getPhone(),
-            AliyunTemplateType::REALNAME_SUCCEEDED,
-            array("time"=>$expiryCN, "status"=>$statusCN));
+            "【ConnecTA】账户验证 Verification",
+            $this->mailRenderer->renderRealnameSucceeded($expiryCN, $expiryEN));
+//        $this->APNService->bulk(
+//            $this->getDevices($user),
+//            "账户审核通过",
+//            "Verification passed",
+//            "您的账户审核已通过，有效期至$expiryCN ，当前身份为$statusCN 。You have been verified as $statusEN, which expires on $expiryEN",
+//            null,
+//            null,
+//            null);
+//        $this->SMSService->send(
+//            $user->getPhone(),
+//            AliyunTemplateType::REALNAME_SUCCEEDED,
+//            array("time"=>$expiryCN, "status"=>$statusCN));
     }
 
     public function realnameFailed(User $user) {
         $this->mailService->send(
-            "alumni@betterrelations.org",
-            "UCBRC 实名认证系统",
+            "no-reply@betterrelations.org",
+            "ConnecTA 账户验证",
             $user->getEmail(),
-            "【UCBRC】实名认证 Verification",
+            "【ConnecTA】账户验证 Verification",
             $this->mailRenderer->renderRealnameFailed());
-        $this->APNService->bulk(
-            $this->getDevices($user),
-            "实名认证审核退回",
-            "Verification failed",
-            "您的实名认证申请已被退回。Your verification request has been rejected.",
-            null,
-            null,
-            null);
-        $this->SMSService->send(
-            $user->getPhone(),
-            AliyunTemplateType::REALNAME_FAILED,
-            array());
+//        $this->APNService->bulk(
+//            $this->getDevices($user),
+//            "账户认证审核退回",
+//            "Verification failed",
+//            "您的账户认证申请已被退回。Your verification request has been rejected.",
+//            null,
+//            null,
+//            null);
+//        $this->SMSService->send(
+//            $user->getPhone(),
+//            AliyunTemplateType::REALNAME_FAILED,
+//            array());
     }
 
     public function notifyNewMessage(Chat $chat) {
         $this->mailService->send(
-            "message@betterrelations.org",
-            "UCBRC 私信",
+            "no-reply@betterrelations.org",
+            "ConnecTA 私信",
             $chat->getReceiver()->getEmail(),
-            "【UCBRC】私信 PM",
+            "【ConnecTA】私信 PM",
             $this->mailRenderer->renderNewMessagePage($chat->getSender()->getUsername(), $chat->getContent())
         );
         $this->APNService->bulk(
@@ -238,9 +232,9 @@ class NotificationService
         }
         $this->mailService->bulk(
             "study@betterrelations.org",
-            "UCBRC Blackboard",
+            "ConnecTA Blackboard",
             $emails,
-            "【UCBRC】New Notice",
+            "【ConnecTA】New Notice",
             $this->mailRenderer->renderNoticePage($teacher->getValidAuth()->getEnglishName(), $class, $title, $content)
         );
         $this->SMSService->bulk(
@@ -275,9 +269,9 @@ class NotificationService
         }
         $this->mailService->bulk(
             "study@betterrelations.org",
-            "UCBRC Blackboard",
+            "ConnecTA Blackboard",
             $emails,
-            "【UCBRC】Deadline Reminder",
+            "【ConnecTA】Deadline Reminder",
             $this->mailRenderer->renderDeadlinePage($teacher->getValidAuth()->getEnglishName(), $title, $deadline, $content)
         );
         $this->SMSService->bulk(

@@ -246,7 +246,7 @@ class User implements UserInterface, UserEntityInterface, \JsonSerializable
             "phone" => $this->phone,
             "joinTime" => $this->joinTime,
             "admin" => $this->isAdmin(),
-            "status" => ($this->getValidAuth() ?? new Alumni())->getUserStatus()
+            // "status" => ($this->getValidAuth() ?? new Alumni())->getUserStatus()
         );
     }
 
@@ -387,18 +387,7 @@ class User implements UserInterface, UserEntityInterface, \JsonSerializable
      */
     public function getAlumniPermission($val)
     {
-        switch ($val->getUserStatus()) {
-            case 0:
-            case 1:
-                return Permission::IS_STUDENT;
-            case 2:
-            case 3:
-                return Permission::IS_GRADUATE;
-            case 4:
-                return Permission::IS_TEACHER;
-            default:
-                return Permission::IS_LOGIN;
-        }
+        return Permission::IS_STUDENT;
     }
 
     /**

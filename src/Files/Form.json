@@ -1,71 +1,57 @@
 [
   {
-    "type": "divider",
-    "key": "start"
-  },
-  {
     "key": "chineseName",
     "type": "input",
     "validate": {
-      "required": true,
-      "minLength": 2,
-      "maxLength": 4
     }
   },
   {
     "key": "englishName",
     "type": "input",
     "validate": {
-      "required": true,
-      "minLength": 2,
-      "maxLength": 20
     }
-  },
-  {
-    "type": "divider",
-    "key": "current"
   },
   {
     "key": "university",
-    "type": "textarea",
+    "type": "input",
     "validate": {
       "required": true
     },
     "search": "fuzzy"
   },
   {
-    "key": "major",
-    "type": "textarea",
-    "validate": {
-      "required": true
-    },
-    "search": "fuzzy"
-  },
-  {
-    "key": "personalInfo",
-    "type": "textarea",
+    "key": "source",
+    "type": "select",
+    "values": [
+      {
+        "value": "0",
+        "hidden": [
+          "sourceCustom"
+        ]
+      }, {
+        "value": "1",
+        "hidden": [
+          "sourceCustom"
+        ]
+      }, {
+        "value": "2",
+        "hidden": [
+          "sourceCustom"
+        ]
+      }, {
+        "value": "3",
+        "hidden": []
+      }
+    ],
     "validate": {
       "required": true
     }
-  },
-  {
-    "key": "country",
-    "type": "country",
-    "validate": {
-      "required": true
-    },
-    "search": "precise"
-  },
-  {
-    "key": "onlineContact",
-    "type": "textarea",
+  }, {
+    "key": "sourceCustom",
+    "type": "input",
     "validate": {
       "required": true
     }
-  },
-  {
-    "type": "divider",
-    "key": "more"
   },
   {
     "key": "remark",

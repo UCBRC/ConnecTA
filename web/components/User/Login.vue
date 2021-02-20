@@ -126,7 +126,6 @@
             }
         }, mounted: function () {
             this.$emit("changeTitle", this.$t("login-title"))
-            //this.$emit("prepareRecaptcha")
         }, watch: {
             gResponse: {
                 handler: function (val, newVal) {

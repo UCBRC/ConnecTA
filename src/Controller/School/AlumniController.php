@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -153,28 +154,12 @@ class AlumniController extends ConnecTAController
         else
             $form = $repo->findOneBy(["id" => $id, "user" => $this->getUser()]);
 
-        $form->setUserStatus($request->request->get("userStatus"));
         $form->setChineseName($request->request->get("chineseName"));
         $form->setEnglishName($request->request->get("englishName"));
-        $birthday = \DateTime::createFromFormat("Y/m/d", substr($request->request->get("birthday"), 0, 10));
-        if(!$birthday)
-            $birthday = null;
-        $form->setBirthday($birthday);
-        $form->setGender($request->request->get("gender"));
-        $form->setJuniorSchool($request->request->get("juniorSchool"));
-        $form->setJuniorRegistration($request->request->get("juniorRegistration"));
-        $form->setJuniorClass($request->request->get("juniorClass"));
-        $form->setSeniorSchool($request->request->get("seniorSchool"));
-        $form->setSeniorRegistration($request->request->get("seniorRegistration"));
-        $form->setSeniorClass($request->request->get("seniorClass"));
-        $form->setUniversity($request->request->get("university"));
-        $form->setMajor($request->request->get("major"));
-        $form->setWorkInfo($request->request->get("workInfo"));
-        $form->setPersonalInfo($request->request->get("personalInfo"));
-        $form->setCountry($request->request->get("country"));
-        $form->setLocation($request->request->get("location"));
-        $form->setOnlineContact($request->request->get("onlineContact"));
+        $form->setSource($request->request->get("source"));
+        $form->setSourceCustom($request->request->getInt("sourceCustom"));
         $form->setRemark($request->request->get("remark"));
+        $form->setUniversity($request->request->get("university"));
         $em->persist($form);
         $em->flush();
 
@@ -199,14 +184,16 @@ class AlumniController extends ConnecTAController
         foreach ($errors as $error) {
             array_push($error_ids, $error->getMessage());
         }
-        $normalizer = new ObjectNormalizer();
-        $normalizer->setCircularReferenceLimit(1);
-        $normalizer->setCircularReferenceHandler(function ($object) {
-            return null;
-        });
+        $defaultContext = [
+            AbstractNormalizer::CIRCULAR_REFERENCE_HANDLER => function ($object) {
+                return "_circular_";
+            },
+            AbstractNormalizer::CIRCULAR_REFERENCE_LIMIT => 1,
+        ];
+        $normalizer = new ObjectNormalizer(null, null, null, null, null, null, $defaultContext);
         $serializer = new Serializer([new UuidNormalizer(), $normalizer], [new JsonEncoder()]);
         $formArray = json_decode($serializer->serialize($form, "json"), true);
-        $content = json_decode(file_get_contents($this->get('kernel')->getRootDir() . "/Files/Form.json"), true);
+        $content = json_decode(file_get_contents($this->appKernel->getProjectDir() . "/src/Files/Form.json"), true);
         foreach ($content as $item) {
             if ($item["type"] == "select" && null !== $formArray[$item["key"]]) {
                 $values = $item["values"][(int)$formArray[$item["key"]]];
@@ -286,7 +273,7 @@ class AlumniController extends ConnecTAController
         $repo = $em->getRepository(Alumni::class);
         $id = $request->request->get("id");
         $action = $request->request->get("action");
-        $time = \DateTime::createFromFormat("Y-m-d\TH:i:s\.000\Z", $request->request->get("time"));
+        $time = \DateTime::createFromFormat("Y-m-d", $request->request->get("time"));
         if ($time)
             $time->add(new \DateInterval("PT11H"));
         else
@@ -299,10 +286,7 @@ class AlumniController extends ConnecTAController
                 $service->realnameFailed($ticket->getUser());
                 break;
             case "accept":
-                if($ticket->getUserStatus() == 5)
-                    $ticket->setStatus(Alumni::STATUS_NOT_NFLS);
-                else
-                    $ticket->setStatus(Alumni::STATUS_PASSED);
+                $ticket->setStatus(Alumni::STATUS_PASSED);
                 $ticket->setExpireAt($time);
                 $service->realnamePassed($ticket->getUser(),$ticket);
                 break;

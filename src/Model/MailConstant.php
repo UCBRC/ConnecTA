@@ -26,17 +26,17 @@ EOD;
     function renderRealnameFailed()
     {
         $text = <<<EOD
-用户您好，您的实名认证申请已被退回，请登录查看详情。
-Hello, your request to become a verified use has been rejected. Login to see more details
+用户您好，您的账户认证申请已被退回，请登录查看详情。
+Hello, your verification request has been rejected. Login to see more details.
 EOD;
         return $this->base($text);
     }
 
-    function renderRealnameSucceeded(string $statusCN,string $statusEN, string $timeCN, string $timeEN)
+    function renderRealnameSucceeded(string $timeCN, string $timeEN)
     {
         $text = <<<EOD
-用户您好，您的实名认证已通过审核，当前身份为$statusCN ，有效期至$timeCN 。
-Hello, now you are verified. Your identity is $statusEN with expire date on $timeEN.
+用户您好，您的账户认证已通过审核，有效期至$timeCN 。
+Hello, your account has been verified. It will expire on $timeEN.
 EOD;
         return $this->base($text);
     }

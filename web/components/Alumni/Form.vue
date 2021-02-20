@@ -356,16 +356,7 @@
                     this.$emit("generalError",error)
                 })
             }, ddlHelper() {
-                if (this.form.userStatus === "0" && this.form.juniorRegistration) {
-                    this.reviewDate = new Date(this.form.juniorRegistration + "/06/30")
-                }
-                if (this.form.userStatus === "1" && this.form.seniorRegistration) {
-                    this.reviewDate = new Date(this.form.seniorRegistration + "/06/30")
-                }
-                if (this.form.userStatus === "5") {
-                    let d = new Date();
-                    this.reviewDate = new Date(d.getFullYear() + 1, d.getMonth(), d.getDate())
-                }
+                this.reviewDate = this.$moment().add(5, 'year').format('YYYY-MM-DD');
             }
         },
         watch: {

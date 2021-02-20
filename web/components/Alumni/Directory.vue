@@ -3,7 +3,7 @@
     <div>
         <md-card>
             <md-card-header>
-                <div class="md-title">校友查询</div>
+                <div class="md-title">成员查询</div>
             </md-card-header>
 
             <md-card-content>
@@ -11,14 +11,14 @@
                     <label>综合</label>
                     <md-input v-model="name"></md-input>
                 </md-field>
-                <md-field>
-                    <label>毕业年份（可选）</label>
-                    <md-input v-model="registration"></md-input>
-                </md-field>
-                <md-field>
-                    <label>入学班级（可选）</label>
-                    <md-input v-model="claz"></md-input>
-                </md-field>
+<!--                <md-field>-->
+<!--                    <label>毕业年份（可选）</label>-->
+<!--                    <md-input v-model="registration"></md-input>-->
+<!--                </md-field>-->
+<!--                <md-field>-->
+<!--                    <label>入学班级（可选）</label>-->
+<!--                    <md-input v-model="claz"></md-input>-->
+<!--                </md-field>-->
 
             </md-card-content>
 
@@ -48,7 +48,7 @@
 <script>
     export default {
         name: "Directory",
-        props: ['gResponse','verified'],
+        props: ['verified'],
         data: () => ({
             name: "",
             registration: "",
@@ -56,11 +56,10 @@
             list: []
         }),
         mounted: function () {
-            this.$emit("prepareRecaptcha")
             this.$emit("changeTitle", this.$t('title-directory'))
             this.load()
             if(!this.verified) {
-                this.$emit("showMsg", "请先完成实名认证！")
+                this.$emit("showMsg", "请先加入 ConneTA！")
                 this.$router.push("/alumni/auth")
             }
         },
@@ -68,7 +67,8 @@
             load() {
             },
             search() {
-                grecaptcha.execute()
+                // grecaptcha.execute()
+              this.ct()
             },
             ct() {
                 let registration = this.registration
@@ -81,16 +81,16 @@
                     name: this.name,
                     registration: registration,
                     class: claz,
-                    captcha: grecaptcha.getResponse()
+                    // captcha: grecaptcha.getResponse()
                 }).then((response) => {
                     if (response.data["code"] === 200)
                         this.list = response.data["data"]
                     else
                         this.$emit("showMsg", response.data["data"])
-                    grecaptcha.reset()
+                    // grecaptcha.reset()
                 }).catch((error) => {
                     this.$emit("generalError",error)
-                    grecaptcha.reset()
+                    // grecaptcha.reset()
                 })
             },
             info(id) {
@@ -99,9 +99,9 @@
             }
         },
         watch: {
-            gResponse() {
-                this.ct()
-            }
+            // gResponse() {
+            //     this.ct()
+            // }
         }
     }
 </script>

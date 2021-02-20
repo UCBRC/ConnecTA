@@ -94,9 +94,6 @@ class AlumniRepository extends ServiceEntityRepository
 
         $query = $query->andWhere($qb->expr()->orX(
             $qb->expr()->like("u.university", ":name"),
-            $qb->expr()->like("u.major", ":name"),
-            $qb->expr()->like("u.workInfo", ":name"),
-            $qb->expr()->like("u.personalInfo", ":name"),
             $qb->expr()->like("u.chineseName", ":name"),
             $qb->expr()->like("u.englishName", ":name")
         ))->setParameter("name", "%" . $name . "%");
