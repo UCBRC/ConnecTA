@@ -160,7 +160,6 @@
 </template>
 
 <script>
-    import Raven from 'raven-js'
     import Markdown from "../Components/Markdown"
     export default {
         name: 'Dashboard',
@@ -214,7 +213,7 @@
                         this.unread = response.data['data']['unread']
                         this.avatar = "/avatar/" + response.data['data']['id'] + ".png?" + this.reloadC
                         this.loggedIn = true
-                        Raven.setUserContext({
+                        Sentry.setUser({
                             username: this.username,
                             email: this.email
                         });
