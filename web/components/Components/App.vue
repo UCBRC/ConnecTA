@@ -75,7 +75,7 @@
 
             <md-app-drawer :md-active.sync='menuVisible' md-persistent='full'>
                 <md-toolbar class='md-transparent' md-elevation='0'>
-                    UCBRC
+                    ConnecTA
                     <div class='md-toolbar-section-end'>
                         <md-button class='md-icon-button md-dense' @click='menuVisible = !menuVisible'>
                             <md-icon>keyboard_arrow_left</md-icon>
@@ -88,20 +88,13 @@
                         <md-icon>dashboard</md-icon>
                         <span class='md-list-item-text'>{{ $t('homepage') }}</span></md-list-item>
 
-                    <!--
-                    <md-list-item href='https://wiki.nfls.io'>
-                        <md-icon>library_books</md-icon>
-                        <span class='md-list-item-text'>{{ $t('wiki') }}</span></md-list-item>
-                    -->
 <!--
                     <md-list-item to='/media/game'>
                         <md-icon>gamepad</md-icon>
                         <span class='md-list-item-text'>{{ $t('game') }}</span></md-list-item>
 -->
                     <!--
-                    <md-list-item to='/media/gallery'>
-                        <md-icon>photo_library</md-icon>
-                        <span class='md-list-item-text'>{{ $t('gallery') }}</span></md-list-item>
+
                     -->
                     <!--
                     <md-list-item to='/school/vote'>
@@ -110,19 +103,12 @@
                         -->
 
                     <md-list-item to='/alumni/auth'>
-                        <md-icon>perm_identity</md-icon>
-                        <span class='md-list-item-text'>{{ $t('realname') }}</span></md-list-item><!--
+                        <md-icon>add</md-icon>
+                        <span class='md-list-item-text'>{{ $t('realname') }}</span></md-list-item>
                     <md-list-item to='/alumni/directory'>
-                        <md-icon>info</md-icon>
+                        <md-icon>people</md-icon>
                         <span class='md-list-item-text'>{{ $t('directory') }}</span></md-list-item>
-                    <md-list-item href='https://forum.nfls.io'>
-                        <md-icon>forum</md-icon>
-                        <span class='md-list-item-text'>{{ $t('forum') }}</span></md-list-item>
 
-                    <md-list-item href='https://water.nfls.io'>
-                        <md-icon>pool</md-icon>
-                        <span class='md-list-item-text'>{{ $t('study') }}</span></md-list-item>
--->
                     <div id="admin" v-if="admin">
                         <md-divider></md-divider>
                         <md-subheader>{{ $t('admin') }}</md-subheader>
@@ -147,7 +133,10 @@
                         <md-list-item to="/admin/notification">
                             <md-icon>notification_important</md-icon>
                             <span class='md-list-item-text'>{{ $t('notification') }}</span></md-list-item>
-                        <!--
+                        <md-list-item to='/media/gallery'>
+                            <md-icon>photo_library</md-icon>
+                            <span class='md-list-item-text'>{{ $t('gallery') }}</span></md-list-item>
+                      <!--
                         <md-list-item to="/admin/vote">
                             <md-icon>data_usage</md-icon>
                             <span class='md-list-item-text'>{{ $t('vote') }}</span></md-list-item>
@@ -160,7 +149,7 @@
             <md-app-content>
                 <router-view :gResponse='gResponse' :webpSupported='webpSupported' :loggedIn='loggedIn' :admin='admin'
                              :verified='verified' :avatar="avatar" @changeTitle="changeTitle"
-                             @prepareRecaptcha="prepareRecaptcha" @reload="reload" @renderWebp="renderWebp"
+                             @reload="reload" @renderWebp="renderWebp"
                              @showMsg="showMsg" @generalError="generalError"/>
                 <md-snackbar md-positoin="center" :md-active.sync="showSnackbar" md-persistent>
                     <span>{{message}}</span>
@@ -194,29 +183,7 @@
             active: false
         }),
         methods: {
-            initReCaptcha() {
-                let self = this;
-                setTimeout(function () {
-                    if (typeof grecaptcha === 'undefined') {
-                        self.initReCaptcha()
-                    }
-                    else {
-                        try {
-                            let siteKey = '6LfV3UIUAAAAADBXL7tfgvUs9rt2gw-4GBxLO9Pj'
-                            if (window.location.hostname === "127.0.0.1")
-                                siteKey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
-                            grecaptcha.render('recaptcha', {
-                                sitekey: siteKey,
-                                size: 'invisible',
-                                callback: self.ct
-                            });
-                        } catch(e) {
-                            self.initReCaptcha()
-                        }
-
-                    }
-                }, 100);
-            }, logout() {
+            logout() {
                 this.axios.post("/user/logout").then((response) => {
                     this.$clearStorage()
                     this.reload()
@@ -225,24 +192,8 @@
             }, ct(response) {
                 this.gResponse = response
             }, changeTitle(title) {
-                document.title = title + " - UCBRC "
+                document.title = title + " - ConnecTA"
                 this.title = title
-            }, prepareRecaptcha() {
-                document.getElementById('recaptcha').style.visibility = 'visible';
-                let self = this
-                if (typeof grecaptcha !== 'undefined') {
-                    try {
-                        grecaptcha.reset()
-                    } catch(e) {
-                        setTimeout(function () {
-                            self.prepareRecaptcha()
-                        }, 100);
-                    }
-                } else {
-                    setTimeout(function () {
-                        self.prepareRecaptcha()
-                    }, 100);
-                }
             }, renderWebp() {
                 if(typeof WebPJSInit === "undefined")
                     this.loadWebP()
@@ -324,10 +275,6 @@
                 this.language = "English"
             else
                 this.language = "简体中文"
-        }, watch: {
-            $route() {
-                document.getElementById('recaptcha').style.visibility = 'hidden';
-            }
         }
 
     }

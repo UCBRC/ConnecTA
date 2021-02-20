@@ -11,6 +11,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "@hcaptcha/vue-hcaptcha": "^0.3.0",
     "@intlify/vue-i18n-loader": "^1.0.0",
     "@symfony/webpack-encore": "^1.0.0",
     "@xkeshi/vue-countdown": "^1.0.1",

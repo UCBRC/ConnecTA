@@ -4,73 +4,6 @@
     "key": "start"
   },
   {
-    "key": "userStatus",
-    "type": "select",
-    "values": [
-      {
-        "value": "0",
-        "hidden": [
-          "seniorSchool",
-          "seniorClass",
-          "seniorRegistration",
-          "university",
-          "major",
-          "workInfo"
-        ]
-      },
-      {
-        "value": "1",
-        "hidden": [
-          "university",
-          "major",
-          "workInfo"
-        ]
-      },
-      {
-        "value": "2",
-        "hidden": [
-          "workInfo"
-        ]
-      },
-      {
-        "value": "3",
-        "hidden": [
-        ]
-      },
-      {
-        "value": "4",
-        "hidden": [
-          "juniorSchool",
-          "juniorClass",
-          "juniorRegistration",
-          "seniorSchool",
-          "seniorClass",
-          "seniorRegistration",
-          "university",
-          "major",
-          "workInfo"
-        ]
-      },
-      {
-        "value": "5",
-        "hidden": [
-          "juniorSchool",
-          "juniorClass",
-          "juniorRegistration",
-          "seniorSchool",
-          "seniorClass",
-          "seniorRegistration",
-          "university",
-          "major",
-          "workInfo"
-        ]
-      }
-    ],
-    "validate": {
-      "required": true
-    }
-  },
-  {
     "key": "chineseName",
     "type": "input",
     "validate": {
@@ -87,128 +20,6 @@
       "minLength": 2,
       "maxLength": 20
     }
-  },
-  {
-    "key": "birthday",
-    "type": "input",
-    "validate": {
-      "required": true
-    }
-  },
-  {
-    "key": "gender",
-    "type": "select",
-    "values": [
-      {
-        "name": "其他",
-        "value": "0"
-      },
-      {
-        "name": "男",
-        "value": "1"
-      },
-      {
-        "name": "女",
-        "value": "2"
-      }
-    ],
-    "validate": {
-      "required": true
-    }
-  },
-  {
-    "type": "divider",
-    "key": "nfls"
-  },
-  {
-    "key": "juniorSchool",
-    "type": "select",
-    "values": [
-      {
-        "value": "1"
-      },
-      {
-        "value": "0",
-        "hidden": [
-          "juniorRegistration",
-          "juniorClass"
-        ]
-      }
-    ],
-    "validate": {
-      "required": true
-    },
-    "search": "multi"
-  },
-  {
-    "key": "juniorRegistration",
-    "type": "input",
-    "validate": {
-      "required": true,
-      "minValue": 1963
-    },
-    "search": "precise"
-  },
-  {
-    "key": "juniorClass",
-    "type": "input",
-    "validate": {
-      "required": true,
-      "minValue": 1,
-      "maxValue": 12
-    },
-    "search": "multi"
-  },
-  {
-    "key": "seniorSchool",
-    "type": "select",
-    "values": [
-      {
-        "value": "5"
-      },
-      {
-        "value": "4"
-      },
-      {
-        "value": "3"
-      },
-      {
-        "value": "2"
-      },
-      {
-        "value": "1"
-      },
-      {
-        "value": "0",
-        "hidden": [
-          "seniorRegistration",
-          "seniorClass"
-        ]
-      }
-    ],
-    "validate": {
-      "required": true
-    },
-    "search": "multi"
-  },
-  {
-    "key": "seniorRegistration",
-    "type": "input",
-    "validate": {
-      "required": true,
-      "minValue": 1963
-    },
-    "search": "precise"
-  },
-  {
-    "key": "seniorClass",
-    "type": "input",
-    "validate": {
-      "required": true,
-      "minValue": 1,
-      "maxValue": 8
-    },
-    "search": "multi"
   },
   {
     "type": "divider",
@@ -231,14 +42,6 @@
     "search": "fuzzy"
   },
   {
-    "key": "workInfo",
-    "type": "textarea",
-    "validate": {
-      "required": true
-    },
-    "search": "fuzzy"
-  },
-  {
     "key": "personalInfo",
     "type": "textarea",
     "validate": {
@@ -248,14 +51,6 @@
   {
     "key": "country",
     "type": "country",
-    "validate": {
-      "required": true
-    },
-    "search": "precise"
-  },
-  {
-    "key": "location",
-    "type": "input",
     "validate": {
       "required": true
     },
