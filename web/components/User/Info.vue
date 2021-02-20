@@ -16,9 +16,9 @@
                             <span>{{ $t('username') }}</span>
                             <span>{{info.username}}</span>
                         </div>
-                        <md-button class="md-icon-button md-list-action" @click="usernameDialog = !usernameDialog" :disabled="sending">
-                            <md-icon>edit</md-icon>
-                        </md-button>
+<!--                        <md-button class="md-icon-button md-list-action" @click="usernameDialog = !usernameDialog" :disabled="sending">-->
+<!--                            <md-icon>edit</md-icon>-->
+<!--                        </md-button>-->
                     </md-list-item>
                     <md-divider></md-divider>
                     <md-list-item>
