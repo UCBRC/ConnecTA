@@ -94,8 +94,8 @@
                         </div>
                         <div class="md-flex md-flex-small-100" align="left">
                             <span>
-                                <a href="https://wiki.nfls.io/用户协议" target="_blank">{{ $t('tos') }}</a><br/>
-                                <a href="https://wiki.nfls.io/隐私协议" target="_blank">{{ $t('privacy') }}</a>
+<!--                                <a href="https://wiki.nfls.io/用户协议" target="_blank">{{ $t('tos') }}</a><br/>-->
+                                <a href="https://www.betterrelations.org/privacy-notice" target="_blank">{{ $t('privacy') }}</a>
                             </span>
                         </div>
                         <div class="md-flex md-flex-small-100">
