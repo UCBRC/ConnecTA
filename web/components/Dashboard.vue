@@ -86,14 +86,14 @@
                 this.announcement = response.data["data"]
                 this.loaded = true
             })
-            this.axios.get("/index/photos").then((response)=>{
-                let photos = response.data["data"]
-                if(Array.isArray(photos)) {
-                    this.photos = photos
-                } else {
-                    this.loadImages(response.data["data"]["id"])
-                }
-            })
+            // this.axios.get("/index/photos").then((response)=>{
+            //     let photos = response.data["data"]
+            //     if(Array.isArray(photos)) {
+            //         this.photos = photos
+            //     } else {
+            //         this.loadImages(response.data["data"]["id"])
+            //     }
+            // })
         },
         methods: {
             loadImages(id) {

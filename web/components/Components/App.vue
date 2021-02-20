@@ -39,12 +39,10 @@
                                     <md-icon>autorenew</md-icon>
                                     <span class='md-list-item-text'>{{ $t('recover-admin') }}</span></md-list-item>
                                 <md-divider></md-divider>
-                                <!--
-                                <md-list-item @click="lang">>
+                                <md-list-item @click="lang">
                                     <md-icon>translate</md-icon>
                                     <span class='md-list-item-text'>{{ language }}</span></md-list-item>
                                 <md-divider></md-divider>
-                                -->
                                 <md-list-item @click="logout">
                                     <md-icon>exit_to_app</md-icon>
                                     <span class='md-list-item-text'>{{ $t('logout') }}</span></md-list-item>
@@ -161,6 +159,8 @@
 
 <script>
     import Markdown from "../Components/Markdown"
+    import * as Sentry from "@sentry/vue";
+
     export default {
         name: 'Dashboard',
         components: {
@@ -228,6 +228,7 @@
                     }
                 }).catch((error) => {
                     this.loggedIn = false
+                    console.error(error)
                 })
             }, loadWebP() {
                 var WebP = new Image()
@@ -292,5 +293,12 @@
 
 </style>
 <style lang='scss'>
-    
+@import "~vue-material/dist/theme/engine"; // Import the theme engine
+
+@include md-register-theme("default", (
+    primary: md-get-palette-color(green, 600), // The primary color of your application
+    accent: md-get-palette-color(#ffc0cb, 500) // The accent or secondary color
+));
+
+@import "~vue-material/dist/theme/all"; // Apply the theme
 </style>
