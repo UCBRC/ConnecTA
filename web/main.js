@@ -56,7 +56,7 @@ Sentry.init({
     Vue,
     dsn: config.sentry,
     integrations: [new Integrations.BrowserTracing()],
-
+    logErrors: true,
     // We recommend adjusting this value in production, or using tracesSampler
     // for finer control
     tracesSampleRate: 1.0,
