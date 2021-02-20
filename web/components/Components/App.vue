@@ -188,7 +188,7 @@
         methods: {
             logout() {
                 this.axios.post("/user/logout").then((response) => {
-                    this.$clearStorage()
+                    // this.$clearStorage()
                     this.reload()
                     location.reload()
                 })
