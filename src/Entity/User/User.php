@@ -127,6 +127,14 @@ class User implements UserInterface, UserEntityInterface, \JsonSerializable
     private $events;
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="App\Entity\School\Alumni", mappedBy="user")
+     * @ORM\OrderBy({"submitTime" = "desc"})
+     */
+    private $authTickets;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="string", nullable=true)

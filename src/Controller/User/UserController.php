@@ -172,7 +172,6 @@ class UserController extends ConnecTAController
         else
             $response = new RedirectResponse("/");
         return $response;
-
     }
 
 

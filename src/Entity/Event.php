@@ -10,11 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
 use JetBrains\PhpStorm\Pure;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidInterface;
+use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * @ORM\Entity(repositoryClass=EventRepository::class)
  */
-class Event
+class Event implements \JsonSerializable
 {
     /**
      * @var UuidInterface
@@ -179,6 +180,14 @@ class Event
      */
     public function removeUser(User $user): void {
         $this->users->removeElement($user);
+    }
+
+    public function getTime(): DateTime {
+        return $this->time;
+    }
+
+    public function setTime(DateTime $time): DateTime {
+        $this->time = $time;
     }
 
     /**

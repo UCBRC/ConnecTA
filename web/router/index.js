@@ -8,10 +8,9 @@ import Directory from '../components/Alumni/Directory'
 import Realname from '../components/Alumni/Realname'
 import Form from '../components/Alumni/Form'
 
-import Game from '../components/Media/Game'
 import Gallery from '../components/Media/Gallery'
 import Album from '../components/Media/Album'
-//import Vote from '../components/School/Vote'
+import Vote from '../components/School/Event'
 
 import Login from '../components/User/Login'
 import Register from '../components/User/Register'
@@ -24,11 +23,10 @@ import Public from '../components/User/Public'
 import Preference from '../components/Admin/Preference'
 import Upload from '../components/Admin/Upload'
 import Notification from '../components/Admin/Notification'
-//import VoteAdmin from '../components/Admin/Vote'
+import VoteAdmin from '../components/Admin/Vote'
 import Old from '../components/Admin/Old'
 import User from '../components/Admin/User'
 import Overview from '../components/Admin/Overview'
-
 
 Vue.use(Router)
 
@@ -54,18 +52,15 @@ export default new Router({
                     path: '/alumni/directory',
                     component: Directory
                 }, {
-                    path: '/media/game',
-                    component: Game
-                }, {
                     path: '/media/gallery',
                     component: Gallery
                 }, {
                     path: '/media/gallery/:id',
                     component: Album
-                }/*, {
-                    path: '/school/vote',
+                }, {
+                    path: '/event',
                     component: Vote
-                }*/, {
+                }, {
                     path: '/user/security',
                     component: Security
                 }, {
@@ -98,10 +93,10 @@ export default new Router({
                 }, {
                     path: '/admin/notification',
                     component: Notification
-                }/*, {
-                    path: '/admin/vote',
+                }, {
+                    path: '/admin/event',
                     component: VoteAdmin
-                }*/, {
+                }, {
                     path: '/admin/old',
                     component: Old
                 }, {
