@@ -51,7 +51,7 @@ class EventController extends ConnecTAController
         $this->denyAccessUnlessGranted(Permission::IS_LOGIN);
         if(!$this->getUser()->hasRole(Permission::IS_STUDENT))
             return $this->response()->response($translator->trans("not-eligible-to-vote"), Response::HTTP_UNAUTHORIZED);
-        $id = $request->query->get("id");
+        $id = $request->request->get("id");
         /** @var Event $event */
         $event = $this->getDoctrine()->getManager()->getRepository(Event::class)->find($id);
         $em = $this->getDoctrine()->getManager();

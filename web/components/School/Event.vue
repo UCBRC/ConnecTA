@@ -9,6 +9,9 @@
                 <md-card-content>
                     <markdown :markdown="current.content"></markdown>
                 </md-card-content>
+              <md-card-actions>
+                <md-button class="md-raised md-primary" @click="join">RSVP</md-button>
+              </md-card-actions>
             </md-card>
         </div>
 
@@ -25,7 +28,8 @@
         name: "Vote",
         mounted: function () {
             this.$emit('changeTitle', "活动")
-            this.list()
+            this.id = this.$route.params["id"]
+            this.load()
         },
         data: () => ({
             id: "",
@@ -34,32 +38,21 @@
             loading: true
         }),
         methods: {
-            list() {
-                this.axios.get("/event/list").then((response) => {
-                    this.events = response.data["data"]
-                    if(this.events.length > 0)
-                        this.id = this.events[0].id
-                    this.loading = false
-                }).catch((error)=>{
-                    this.$router.push("/user/login")
-                    console.log(error)
-                })
-            },
             load() {
                 this.axios.get("/event/detail?id="+this.id).then((response) => {
                     this.current = response.data["data"]
+                    this.loading = false
                 }).catch((error)=>{
                     this.$emit("generalError", error)
                 })
             },
-            submit() {
-                this.axios.post("/school/join", {
+            join() {
+                this.axios.post("/event/join", {
                     id: this.id,
                 }).then((response) => {
                     if(response.data["code"] === 200){
                         this.result = true
-                        this.query = response.data["data"].code
-                        this.status()
+                        this.load()
                     }else{
                         this.message = response.data["data"]
                         this.error = true

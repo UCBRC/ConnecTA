@@ -10,7 +10,8 @@ import Form from '../components/Alumni/Form'
 
 import Gallery from '../components/Media/Gallery'
 import Album from '../components/Media/Album'
-import Vote from '../components/School/Event'
+import Event from '../components/School/Event'
+import Events from '../components/School/Events'
 
 import Login from '../components/User/Login'
 import Register from '../components/User/Register'
@@ -59,7 +60,10 @@ export default new Router({
                     component: Album
                 }, {
                     path: '/event',
-                    component: Vote
+                    component: Events
+                }, {
+                    path: '/event/:id',
+                    component: Event
                 }, {
                     path: '/user/security',
                     component: Security
