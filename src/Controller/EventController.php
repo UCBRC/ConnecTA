@@ -50,7 +50,7 @@ class EventController extends ConnecTAController
     public function join(Request $request, TranslatorInterface $translator, UserPasswordEncoderInterface $passwordEncoder) {
         $this->denyAccessUnlessGranted(Permission::IS_LOGIN);
         if(!$this->getUser()->hasRole(Permission::IS_STUDENT))
-            return $this->response()->response($translator->trans("not-eligible-to-vote"), Response::HTTP_UNAUTHORIZED);
+            return $this->response()->response($translator->trans("not-eligible-to-event"), Response::HTTP_UNAUTHORIZED);
         $id = $request->request->get("id");
         /** @var Event $event */
         $event = $this->getDoctrine()->getManager()->getRepository(Event::class)->find($id);
