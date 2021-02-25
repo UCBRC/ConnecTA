@@ -117,13 +117,14 @@ class User implements UserInterface, UserEntityInterface, \JsonSerializable
      * @ORM\Column(type="datetime", options={"default":"CURRENT_TIMESTAMP"})
      */
     private $joinTime;
+
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="App\Entity\School\Alumni", mappedBy="user")
-     * @ORM\OrderBy({"submitTime" = "desc"})
+     * @ORM\ManyToMany(targetEntity="App\Entity\Event", mappedBy="users")
+
      */
-    private $authTickets;
+    private $events;
 
     /**
      * @var string
