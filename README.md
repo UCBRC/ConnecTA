@@ -1,5 +1,6 @@
 ## ConnecTA
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FUCBRC%2FConnecTA.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FUCBRC%2FConnecTA?ref=badge_shield)
 
 This repository contains code for backend including api service and frontend for web service. 
 We are now using Symfony as our backend framework, and Vue as our frontend framework.
@@ -33,3 +34,7 @@ Copy and configure all parameters form .env.dist correctly in .env
 [comment]: <> (## Contribution)
 
 [comment]: <> (For all the things related to development&#40;e.g. issues, releasing schedules&#41;, please visit https://dev.nfls.io.)
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FUCBRC%2FConnecTA.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FUCBRC%2FConnecTA?ref=badge_large)
